@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/icons/react.svg'
 import viteLogo from './assets/icons/vite.svg'
 import heroImg from './assets/images/hero.png'
+import { Button } from './components/Button/button'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,7 +11,7 @@ function App() {
     <>
       <section
         id="center"
-        className="flex flex-col gap-6.25 place-content-center place-items-center grow max-lg:px-5 max-lg:pt-8 max-lg:pb-6 max-lg:gap-4.5"
+        className="flex grow flex-col place-content-center place-items-center gap-6.25 max-lg:gap-4.5 max-lg:px-5 max-lg:pt-8 max-lg:pb-6"
       >
         <div className="relative">
           <img
@@ -22,15 +23,18 @@ function App() {
           />
           <img
             src={reactLogo}
-            className="absolute inset-x-0 mx-auto z-10 top-8.5 h-7 hero-framework"
+            className="hero-framework absolute inset-x-0 top-8.5 z-10 mx-auto h-7"
             alt="React logo"
           />
           <img
             src={viteLogo}
-            className="absolute inset-x-0 mx-auto z-0 top-26.75 h-6.5 w-auto hero-vite"
+            className="hero-vite absolute inset-x-0 top-26.75 z-0 mx-auto h-6.5 w-auto"
             alt="Vite logo"
           />
         </div>
+
+        <Button variant="secondary">teste</Button>
+
         <div>
           <h1>Get started</h1>
           <p>
@@ -38,7 +42,7 @@ function App() {
           </p>
         </div>
         <button
-          className="inline-flex font-mono text-base px-2.5 py-1.25 rounded-[5px] text-accent bg-accent-bg border-2 border-transparent transition-colors duration-300 mb-6 hover:border-accent-border focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+          className="text-accent bg-accent-bg hover:border-accent-border focus-visible:outline-accent mb-6 inline-flex rounded-[5px] border-2 border-transparent px-2.5 py-1.25 font-mono text-base transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2"
           onClick={() => setCount((count) => count + 1)}
         >
           Count is {count}
@@ -49,23 +53,23 @@ function App() {
 
       <section
         id="next-steps"
-        className="flex border-t border-border text-left max-lg:flex-col max-lg:text-center"
+        className="border-border flex border-t text-left max-lg:flex-col max-lg:text-center"
       >
         <div
           id="docs"
-          className="flex-1 p-8 border-r border-border max-lg:p-5 max-lg:border-r-0 max-lg:border-b max-lg:border-border"
+          className="border-border max-lg:border-border flex-1 border-r p-8 max-lg:border-r-0 max-lg:border-b max-lg:p-5"
         >
-          <svg className="mb-4 w-5.5 h-5.5" role="presentation" aria-hidden="true">
+          <svg className="mb-4 h-5.5 w-5.5" role="presentation" aria-hidden="true">
             <use href="/icons.svg#documentation-icon"></use>
           </svg>
           <h2>Documentation</h2>
           <p>Your questions, answered</p>
-          <ul className="list-none p-0 flex gap-2 mt-8 max-lg:mt-5 max-lg:flex-wrap max-lg:justify-center">
+          <ul className="mt-8 flex list-none gap-2 p-0 max-lg:mt-5 max-lg:flex-wrap max-lg:justify-center">
             <li className="max-lg:flex-[1_1_calc(50%-8px)]">
               <a
                 href="https://vite.dev/"
                 target="_blank"
-                className="text-text-h text-base rounded-md bg-social-bg flex px-[12px] py-[6px] items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-card max-lg:w-full max-lg:justify-center max-lg:box-border"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-md px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
                 <img className="h-[18px]" src={viteLogo} alt="" />
                 <span>Explore Vite</span>
@@ -75,7 +79,7 @@ function App() {
               <a
                 href="https://react.dev/"
                 target="_blank"
-                className="text-text-h text-base rounded-[6px] bg-social-bg flex px-[12px] py-[6px] items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-card max-lg:w-full max-lg:justify-center max-lg:box-border"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-[6px] px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
                 <img className="h-[18px] w-[18px]" src={reactLogo} alt="" />
                 <span>Learn more</span>
@@ -84,23 +88,19 @@ function App() {
           </ul>
         </div>
         <div id="social" className="flex-1 p-8 max-lg:p-5">
-          <svg className="mb-4 w-[22px] h-[22px]" role="presentation" aria-hidden="true">
+          <svg className="mb-4 h-[22px] w-[22px]" role="presentation" aria-hidden="true">
             <use href="/icons.svg#social-icon"></use>
           </svg>
           <h2>Connect with us</h2>
           <p>Join the Vite community</p>
-          <ul className="list-none p-0 flex gap-2 mt-8 max-lg:mt-5 max-lg:flex-wrap max-lg:justify-center">
+          <ul className="mt-8 flex list-none gap-2 p-0 max-lg:mt-5 max-lg:flex-wrap max-lg:justify-center">
             <li className="max-lg:flex-[1_1_calc(50%-8px)]">
               <a
                 href="https://github.com/vitejs/vite"
                 target="_blank"
-                className="text-text-h text-base rounded-[6px] bg-social-bg flex px-[12px] py-[6px] items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-card max-lg:w-full max-lg:justify-center max-lg:box-border"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-[6px] px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
-                <svg
-                  className="h-[18px] w-[18px] dark:invert dark:brightness-200"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="h-[18px] w-[18px]" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#github-icon"></use>
                 </svg>
                 <span>GitHub</span>
@@ -110,13 +110,9 @@ function App() {
               <a
                 href="https://chat.vite.dev/"
                 target="_blank"
-                className="text-text-h text-base rounded-[6px] bg-social-bg flex px-[12px] py-[6px] items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-card max-lg:w-full max-lg:justify-center max-lg:box-border"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-[6px] px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
-                <svg
-                  className="h-[18px] w-[18px] dark:invert dark:brightness-200"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="h-[18px] w-[18px]" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#discord-icon"></use>
                 </svg>
                 <span>Discord</span>
@@ -126,13 +122,9 @@ function App() {
               <a
                 href="https://x.com/vite_js"
                 target="_blank"
-                className="text-text-h text-base rounded-[6px] bg-social-bg flex px-[12px] py-[6px] items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-card max-lg:w-full max-lg:justify-center max-lg:box-border"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-[6px] px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
-                <svg
-                  className="h-[18px] w-[18px] dark:invert dark:brightness-200"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="h-[18px] w-[18px]" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#x-icon"></use>
                 </svg>
                 <span>X.com</span>
@@ -142,13 +134,9 @@ function App() {
               <a
                 href="https://bsky.app/profile/vite.dev"
                 target="_blank"
-                className="text-text-h text-base rounded-[6px] bg-social-bg flex px-[12px] py-[6px] items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-card max-lg:w-full max-lg:justify-center max-lg:box-border"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-[6px] px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
-                <svg
-                  className="h-[18px] w-[18px] dark:invert dark:brightness-200"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="h-[18px] w-[18px]" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#bluesky-icon"></use>
                 </svg>
                 <span>Bluesky</span>
@@ -159,7 +147,7 @@ function App() {
       </section>
 
       <div className="ticks relative w-full"></div>
-      <section id="spacer" className="h-[88px] border-t border-border max-lg:h-12"></section>
+      <section id="spacer" className="border-border h-[88px] border-t max-lg:h-12"></section>
     </>
   )
 }
