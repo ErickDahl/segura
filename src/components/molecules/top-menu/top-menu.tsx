@@ -1,29 +1,34 @@
 import type { AnchorHTMLAttributes, HTMLAttributes } from 'react'
 import { topMenuVariants } from './top-menu.variants'
 
-type TopMenuItem = {
-  label: string
+type TopMenuItemBase = {
   href: string
-  tag?: string
   anchorProps?: AnchorHTMLAttributes<HTMLAnchorElement>
 }
+
+type TopMenuItem =
+  | (TopMenuItemBase & { label: string; bold?: never })
+  | (TopMenuItemBase & { bold: string; label?: never })
 
 type TopMenuProps = HTMLAttributes<HTMLElement> & {
   items: TopMenuItem[]
 }
 
 const TopMenu = ({ items, className, ...props }: TopMenuProps) => {
-  const { list, item, link, label, tag } = topMenuVariants()
+  const { root, wrapper, list, item, link, label, bold } = topMenuVariants()
 
   return (
-    <section className={`bg-subtle w-full py-3 ${className ?? ''}`} {...props}>
-      <div className="container mx-auto w-full max-lg:max-w-full">
+    <section className={root({ className })} {...props}>
+      <div className={wrapper()}>
         <ul className={list()}>
-          {items.map(({ label: text, href, tag: tagText, anchorProps }) => (
+          {items.map(({ href, anchorProps, ...text }) => (
             <li key={href} className={item()}>
               <a href={href} className={link()} {...anchorProps}>
-                <p className={label()}>{text}</p>
-                {tagText && <b className={tag()}>{tagText}</b>}
+                {'bold' in text ? (
+                  <b className={bold()}>{text.bold}</b>
+                ) : (
+                  <p className={label()}>{text.label}</p>
+                )}
               </a>
             </li>
           ))}

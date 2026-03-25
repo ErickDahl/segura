@@ -4,7 +4,7 @@ export const navListVariants = tv({
   slots: {
     list: 'flex',
     item: '',
-    link: ['block px-4 py-3', 'text-dark font-sans text-base font-normal'],
+    link: ['block', 'text-dark font-sans text-base font-normal'],
   },
   variants: {
     direction: {

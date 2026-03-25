@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants'
 
 export const containerVariants = tv({
-  base: 'container mx-auto px-6 md:px-8',
+  base: 'container mx-auto',
   variants: {
     layout: {
       col: 'flex flex-col',

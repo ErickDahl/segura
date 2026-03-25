@@ -4,7 +4,7 @@ import logoSrc from '@/assets/images/logo.svg'
 type LogoProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt'>
 
 const Logo = ({ className, ...props }: LogoProps) => {
-  return <img src={logoSrc} alt="Segura" className={className} {...props} />
+  return <img width={190} src={logoSrc} alt="Segura" className={className} {...props} />
 }
 
 export { Logo }
