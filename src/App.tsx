@@ -2,7 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/icons/react.svg'
 import viteLogo from './assets/icons/vite.svg'
 import heroImg from './assets/images/hero.png'
-import { Button } from './components/Button/button'
+import { Button } from './components/atoms/button/button'
+import { Heading } from './components/atoms/heading/heading'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,7 +34,10 @@ function App() {
           />
         </div>
 
-        <Button variant="secondary">teste</Button>
+        <Button variant="primary">teste</Button>
+        <Heading size="display" color="brand">
+          Vite + React
+        </Heading>
 
         <div>
           <h1>Get started</h1>
@@ -69,9 +73,9 @@ function App() {
               <a
                 href="https://vite.dev/"
                 target="_blank"
-                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-md px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-md px-3 py-1.5 text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
-                <img className="h-[18px]" src={viteLogo} alt="" />
+                <img className="h-4.5" src={viteLogo} alt="" />
                 <span>Explore Vite</span>
               </a>
             </li>
@@ -79,16 +83,16 @@ function App() {
               <a
                 href="https://react.dev/"
                 target="_blank"
-                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-[6px] px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-md px-3 py-1.5 text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
-                <img className="h-[18px] w-[18px]" src={reactLogo} alt="" />
+                <img className="h-4.5 w-4.5" src={reactLogo} alt="" />
                 <span>Learn more</span>
               </a>
             </li>
           </ul>
         </div>
         <div id="social" className="flex-1 p-8 max-lg:p-5">
-          <svg className="mb-4 h-[22px] w-[22px]" role="presentation" aria-hidden="true">
+          <svg className="mb-4 h-5.5 w-5.5" role="presentation" aria-hidden="true">
             <use href="/icons.svg#social-icon"></use>
           </svg>
           <h2>Connect with us</h2>
@@ -98,9 +102,9 @@ function App() {
               <a
                 href="https://github.com/vitejs/vite"
                 target="_blank"
-                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-[6px] px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-md px-3 py-1.5 text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
-                <svg className="h-[18px] w-[18px]" role="presentation" aria-hidden="true">
+                <svg className="h-4.5 w-4.5" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#github-icon"></use>
                 </svg>
                 <span>GitHub</span>
@@ -110,9 +114,9 @@ function App() {
               <a
                 href="https://chat.vite.dev/"
                 target="_blank"
-                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-[6px] px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-md px-3 py-1.5 text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
-                <svg className="h-[18px] w-[18px]" role="presentation" aria-hidden="true">
+                <svg className="h-4.5 w-4.5" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#discord-icon"></use>
                 </svg>
                 <span>Discord</span>
@@ -122,9 +126,9 @@ function App() {
               <a
                 href="https://x.com/vite_js"
                 target="_blank"
-                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-[6px] px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-md px-3 py-1.5 text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
-                <svg className="h-[18px] w-[18px]" role="presentation" aria-hidden="true">
+                <svg className="h-4.5 w-4.5" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#x-icon"></use>
                 </svg>
                 <span>X.com</span>
@@ -134,9 +138,9 @@ function App() {
               <a
                 href="https://bsky.app/profile/vite.dev"
                 target="_blank"
-                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-[6px] px-[12px] py-[6px] text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
+                className="text-text-h bg-social-bg hover:shadow-card flex items-center gap-2 rounded-md px-3 py-1.5 text-base no-underline transition-shadow duration-300 max-lg:box-border max-lg:w-full max-lg:justify-center"
               >
-                <svg className="h-[18px] w-[18px]" role="presentation" aria-hidden="true">
+                <svg className="h-4.5 w-4.5" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#bluesky-icon"></use>
                 </svg>
                 <span>Bluesky</span>
@@ -147,7 +151,7 @@ function App() {
       </section>
 
       <div className="ticks relative w-full"></div>
-      <section id="spacer" className="border-border h-[88px] border-t max-lg:h-12"></section>
+      <section id="spacer" className="border-border h-22 border-t max-lg:h-12"></section>
     </>
   )
 }

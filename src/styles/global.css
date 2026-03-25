@@ -1,69 +1,5 @@
 @import 'tailwindcss';
 
-/* ─── Design tokens ─────────────────────────────────────────────────────────── */
-
-@theme {
-  /* ── Brand palette ────────────────────────────────────────────────────────── */
-  --color-dark: var(--bg-dark); /* dark sections bg + btn primary hover + btn secondary bg/border */
-  --color-orange: var(--orange); /* btn primary bg/border */
-  --color-brand: var(--brand);
-  --color-brand-light: var(--brand-light);
-  --color-brand-subtle: var(--brand-subtle);
-
-  /* ── Text & contrast ──────────────────────────────────────────────────────── */
-  --color-primary: var(--text); /* default text + btn primary text + btn secondary hover bg */
-  --color-invert: var(--text-invert); /* text on dark bg + btn secondary text */
-  --color-muted: var(--text-muted);
-
-  /* ── Backgrounds ──────────────────────────────────────────────────────────── */
-  --color-bg: var(--bg);
-  --color-subtle: var(--bg-subtle);
-  --color-text: var(--text);
-
-  /* ── Border ──────────────────────────────────────────────────────────────── */
-  --color-border: var(--border);
-
-  /* ── Typography ──────────────────────────────────────────────────────────── */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-heading: 'SeguraFont', 'Inter', system-ui, sans-serif;
-  --font-mono: ui-monospace, Consolas, monospace;
-
-  /* ── Shadows ─────────────────────────────────────────────────────────────── */
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08);
-
-  /* ── Spacing ─────────────────────────────────────────────────────────────── */
-  --spacing-section: 5rem; /* 80px — default section padding */
-  --spacing-section-lg: 6rem; /* 96px — featured sections */
-}
-
-/* ─── CSS vars ───────────────────────────────────────────────────────────────── */
-
-:root {
-  --bg: #ffffff;
-  --bg-subtle: #f4f9f8;
-  --bg-dark: #003a32;
-  --orange: #ff905f;
-  --brand: #00d1b5;
-  --brand-light: #9af1dc;
-  --brand-subtle: rgba(154, 241, 220, 0.1);
-  --text: #141414;
-  --text-muted: #6b7280;
-  --text-invert: #fdf8f1;
-  --border: #e2eae8;
-
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--text);
-  background: var(--bg);
-  color-scheme: light;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 /* ─── Reset / base ───────────────────────────────────────────────────────────── */
 
 body {
@@ -76,20 +12,65 @@ body {
   min-height: 100svh;
 }
 
-/* ─── Typography ─────────────────────────────────────────────────────────────── */
+/* ─── CSS vars ───────────────────────────────────────────────────────────────── */
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: 'SeguraFont', 'Inter', system-ui, sans-serif;
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  margin: 0;
+:root {
+  --bg: #fdf8f1;
+  --bg-subtle: #f9f9fa;
+  --bg-dark: #003a32;
+  --mid-green: #006b69;
+  --orange: #ff905f;
+  --brand: #00d1b5;
+  --brand-light: #9af1dc;
+  --brand-black: #141414;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--brand-black);
+  background: var(--bg);
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-p {
-  margin: 0;
+/* ─── Fonts ──────────────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Sentient Variable';
+  src: url('../assets/fonts/Sentient-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sentient Variable';
+  src: url('../assets/fonts/Sentient-VariableItalic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ─── Design tokens ─────────────────────────────────────────────────────────── */
+
+@theme {
+  /* ── Brand palette ────────────────────────────────────────────────────────── */
+  --color-dark: var(--bg-dark);
+  --color-mid: var(--mid-green);
+  --color-orange: var(--orange);
+  --color-brand: var(--brand);
+  --color-brand-light: var(--brand-light);
+  --color-brand-black: var(--brand-black);
+
+  /* ── Backgrounds ─────────────────────────────────────────────────────────── */
+  --color-bg: var(--bg);
+  --color-subtle: var(--bg-subtle);
+
+  /* ── Typography ──────────────────────────────────────────────────────────── */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Sentient Variable', Georgia, serif;
+  --font-mono: ui-monospace, Consolas, monospace;
 }

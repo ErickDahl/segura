@@ -3,7 +3,7 @@ import { tv } from 'tailwind-variants'
 export const buttonVariants = tv({
   base: [
     'flex w-fit cursor-pointer items-center gap-2',
-    'font-heading rounded-[10px] border-2 font-semibold',
+    'font-display rounded-[10px] border-2 font-semibold',
     'transition-all duration-150 ease-in-out',
     'focus-visible:outline-2 focus-visible:outline-offset-2',
     'disabled:pointer-events-none disabled:opacity-50',
@@ -12,17 +12,17 @@ export const buttonVariants = tv({
     variant: {
       primary: [
         'border-orange bg-orange px-4 py-2 whitespace-nowrap',
-        'focus-visible:outline-orange text-primary',
-        'hover:bg-dark hover:focus-visible:outline-dark hover:border-dark hover:text-invert',
+        'focus-visible:outline-orange text-brand-black',
+        'hover:bg-dark hover:focus-visible:outline-dark hover:border-dark hover:text-subtle',
       ],
       secondary: [
-        'border-brand-dark bg-brand-dark flex-wrap px-4 py-3',
-        'focus-visible:outline-brand-dark text-invert',
-        'hover:bg-primary hover:focus-visible:outline-primary hover:border-primary',
+        'border-dark bg-dark flex-wrap px-4 py-3',
+        'focus-visible:outline-dark text-subtle',
+        'hover:bg-brand-black hover:focus-visible:outline-brand-black hover:border-brand-black hover:text-subtle',
       ],
       ghost: [
         'border-transparent bg-transparent px-4 py-2',
-        'text-text hover:bg-subtle focus-visible:outline-border',
+        'text-brand-black hover:bg-subtle focus-visible:outline-dark',
       ],
     },
     size: {
