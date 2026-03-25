@@ -1,9 +1,12 @@
 import { useState } from 'react'
-import reactLogo from './assets/icons/react.svg'
-import viteLogo from './assets/icons/vite.svg'
-import heroImg from './assets/images/hero.png'
-import { Button } from './components/atoms/button/button'
-import { Heading } from './components/atoms/heading/heading'
+import reactLogo from '@/assets/icons/react.svg'
+import viteLogo from '@/assets/icons/vite.svg'
+import heroImg from '@/assets/images/hero.png'
+import { Link } from '@/components/atoms/link/link'
+import { Heading } from '@/components/atoms/heading/heading'
+import { NavList } from '@/components/atoms/nav-list/nav-list'
+import { AnnouncementBar } from '@/components/atoms/announcement-bar/announcement-bar'
+import { TopMenu } from '@/components/molecules/top-menu/top-menu'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -34,7 +37,31 @@ function App() {
           />
         </div>
 
-        <Button variant="primary">teste</Button>
+        <NavList
+          direction="row"
+          items={[
+            { label: 'a', href: '#' },
+            { label: 'b', href: '#' },
+            { label: 'c', href: '#' },
+          ]}
+        />
+
+        <AnnouncementBar>
+          A senhasegura agora é Segura®! <a href="/">Conheça a nova marca ›</a>
+        </AnnouncementBar>
+        <TopMenu
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'About', href: '/about' },
+          ]}
+        />
+
+        <Link variant="primary">teste</Link>
+        <Link variant="secondary">teste</Link>
+        <Link variant="brand">teste</Link>
+        <Link variant="brand-ghost">teste</Link>
+        <Link variant="brand-ghost-invert">teste</Link>
+        <Link variant="secondary-ghost">teste</Link>
         <Heading size="display" color="brand">
           Vite + React
         </Heading>
