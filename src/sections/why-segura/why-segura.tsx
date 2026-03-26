@@ -4,42 +4,31 @@ import { Link } from '@/components/atoms/link/link'
 import { Accordion, AccordionItem } from '@/components/molecules/accordion/accordion'
 import faq1 from '@/assets/images/faq/1.webp'
 import { whySeguraVariants } from './why-segura.variants'
+import { useTranslation } from 'react-i18next'
 
-const items = [
-  {
-    id: 'all-in-one',
-    title: 'Solução All in One',
-    content:
-      'Tudo o que você precisa para gerenciamento de acesso privilegiado em uma única plataforma poderosa. Sem ferramentas extras, sem complexidade — apenas proteção completa.',
-  },
-  {
-    id: 'custos',
-    title: 'Sem Custos Ocultos',
-    content:
-      'Preços transparentes sem licenças extras. Para você ter previsibilidade no orçamento.',
-  },
-  {
-    id: 'implementacao',
-    title: 'Implementação Na Hora',
-    content:
-      'Com a Segura® você começa a usar a plataforma mais rápido do que qualquer outra solução PAM.',
-  },
-  {
-    id: 'suporte',
-    title: 'Suporte Top de Linha',
-    content:
-      'Com a melhor avaliação do mercado, a nossa equipe de especialistas está sempre pronta para ajudar.',
-  },
-]
+const itemKeys = [
+  { id: 'all-in-one', key: 'allInOne' },
+  { id: 'custos', key: 'costs' },
+  { id: 'implementacao', key: 'implementation' },
+  { id: 'suporte', key: 'support' },
+] as const
 
 const { root, content, media, image, ctaRow } = whySeguraVariants()
 
 const WhySegura = () => {
+  const { t } = useTranslation()
+
+  const items = itemKeys.map(({ id, key }) => ({
+    id,
+    title: t(`whySegura.items.${key}.title`),
+    content: t(`whySegura.items.${key}.content`),
+  }))
+
   return (
     <section className={root()}>
       <Container layout="col" className="gap-8">
         <Heading as="h2" color="invert">
-          Por que escolher a Segura®?
+          {t('whySegura.heading')}
         </Heading>
         <div className={content()}>
           <div className={media()}>
@@ -54,8 +43,8 @@ const WhySegura = () => {
           </Accordion>
         </div>
         <div className={ctaRow()}>
-          <Link>Assista à Demo ›</Link>
-          <Link variant="brand-ghost">Veja os Produtos ›</Link>
+          <Link>{t('whySegura.ctaPrimary')}</Link>
+          <Link variant="brand-ghost">{t('whySegura.ctaSecondary')}</Link>
         </div>
       </Container>
     </section>

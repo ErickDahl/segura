@@ -8,6 +8,7 @@ import hipaaIcon from '@/assets/images/proportion/4.svg'
 import gdprIcon from '@/assets/images/proportion/5.svg'
 import soxIcon from '@/assets/images/proportion/6.svg'
 import { complianceVariants } from './compliance.variants'
+import { Trans, useTranslation } from 'react-i18next'
 
 const badges = [
   { id: 'iso', icon: isoIcon, label: 'ISO 27001' },
@@ -33,28 +34,28 @@ const {
 } = complianceVariants()
 
 const Compliance = () => {
+  const { t } = useTranslation()
+
   return (
     <section className={root()}>
       <Container as="div" layout="col" className={wrapper()}>
         <div className={content()}>
           <div className={textCol()}>
             <Heading as="h2" color="invert">
-              Auditorias sem medo: garanta conformidade em cibersegurança
+              {t('compliance.heading')}
             </Heading>
             <p className={description()}>
-              Com{' '}
-              <b>trilhas de auditoria automatizadas, rotação de senhas e gravação de sessões,</b> a
-              Segura® PAM elimina as brechas de segurança que os órgãos reguladores mais fiscalizam.
+              <Trans t={t} i18nKey="compliance.description" components={{ bold: <b /> }} />
             </p>
-            <p className={tagline()}>Não se desespere. Prepare-se:</p>
+            <p className={tagline()}>{t('compliance.tagline')}</p>
           </div>
           <div className={media()}>
-            <img src={complianceImg} alt="Profissional de segurança" className={image()} />
+            <img src={complianceImg} alt={t('compliance.imageAlt')} className={image()} />
           </div>
         </div>
-        <Link>Fale com um Especialista ›</Link>
+        <Link>{t('compliance.cta')}</Link>
         <div className={badgesSection()}>
-          <p className={badgesLabel()}>Perfeita para auditorias de:</p>
+          <p className={badgesLabel()}>{t('compliance.badgesLabel')}</p>
           <div className={badgesRow()}>
             {badges.map(({ id, icon, label }) => (
               <Link

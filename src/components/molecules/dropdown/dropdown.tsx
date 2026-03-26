@@ -9,6 +9,7 @@ import {
   type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
   type HTMLAttributes,
+  type MouseEvent,
   type ReactNode,
 } from 'react'
 import { dropdownVariants } from './dropdown.variants'
@@ -44,7 +45,7 @@ const DropdownRoot = ({ children, className, ...props }: DropdownProps) => {
   const hide = useCallback(() => setOpen(false), [])
 
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    const handleClickOutside = (e: globalThis.MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) hide()
     }
     document.addEventListener('mousedown', handleClickOutside)
@@ -119,11 +120,25 @@ type DropdownItemProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode
 }
 
-const DropdownItem = ({ children, className, ...props }: DropdownItemProps) => {
+const DropdownItem = ({ children, className, onClick, ...props }: DropdownItemProps) => {
+  const { hide } = useDropdown()
   const { item } = dropdownVariants()
 
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    hide()
+    onClick?.(e)
+  }
+
   return (
-    <a role="menuitem" tabIndex={0} {...props}>
+    <a
+      role="menuitem"
+      tabIndex={0}
+      onClick={handleClick}
+      onKeyDown={(e) =>
+        e.key === 'Enter' && handleClick(e as unknown as MouseEvent<HTMLAnchorElement>)
+      }
+      {...props}
+    >
       <li className={item({ className })}>{children}</li>
     </a>
   )

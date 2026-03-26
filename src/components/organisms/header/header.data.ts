@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 // ── Types ────────────────────────────────────────────────────────────
 
 export type NavPanelItem = {
@@ -59,318 +61,444 @@ export type NavPartnersData = {
   }
 }
 
-// ── Platform ────────────────────────────────────────────────────────
+// ── Hook ─────────────────────────────────────────────────────────────
 
-export const panelPlatform: NavPanelData = {
-  items: [
-    {
-      id: 'privileged-access',
-      title: 'Acesso Privilegiado Seguro',
-      description: 'Descubra, gerencie, proteja e audite contas e sessões.',
-      href: '/',
-    },
-    {
-      id: 'endpoint',
-      title: 'Proteção de Endpoint & Dispositivos',
-      description: 'Acesso Just In Time, gestão e elevação de privilégios sob demanda.',
-      href: '/',
-    },
-    {
-      id: 'multi-cloud',
-      title: 'Segurança de Identidades Multi-Cloud',
-      description: 'Acesso seguro em consoles e serviços de múltiplos ambientes em nuvem.',
-      href: '/',
-    },
-    {
-      id: 'devops',
-      title: 'Gerenciamento de segredos de DevOps',
-      description:
-        'Gestão de secrets para aplicações, bancos de dados, ferramentas CI/CD e serviços.',
-      href: '/',
-    },
-    {
-      id: 'certificates',
-      title: 'Gestão de Certificados',
-      description: 'Gestão de ciclo de vida completo de certificados, com automação e publicação.',
-      href: '/',
-    },
-    {
-      id: 'remote-work',
-      title: 'Trabalho Remoto seguro',
-      description:
-        'Acesso remoto sem VPN e com nível de acesso detalhado para seus colaboradores, fornecedores e terceiros.',
-      href: '/',
-    },
-    {
-      id: 'personal-passwords',
-      title: 'Gerenciador de Senhas Pessoais',
-      description: 'Armazene com segurança suas senhas pessoais e dados sensíveis.',
-      href: '/',
-    },
-    {
-      id: 'infrastructure',
-      title: 'Infraestrutura Privilegiada',
-      description: 'Infraestrutura ativa, segura, de alta disponibilidade e escalável.',
-      href: '/',
-    },
-  ],
-  banner: {
-    title: 'Plataforma 360°',
-    description:
-      'Uma plataforma completa, que garante as melhores práticas de Privilégio Mínimo e melhora a postura de segurança em toda a sua organização com o menor custo de propriedade total e implementação mais rápida do mercado.',
-    ctaLabel: 'Explore Nossos Produtos',
-    ctaHref: '/',
-  },
-}
+export function useHeaderData() {
+  const { t } = useTranslation()
 
-// ── Solutions ───────────────────────────────────────────────────────
-
-export const panelSolutions: NavColumnsData = {
-  columns: [
-    {
-      id: 'use-case-1',
-      title: 'Por Tipo de Uso',
-      links: [
-        { id: 'audit', label: 'Auditoria e Compliance', href: '/' },
-        { id: 'data-theft', label: 'Prevenção a Roubo de Dados', href: '/' },
-        { id: 'devops', label: 'DevOps', href: '/' },
-        { id: 'insider-threat', label: 'Eliminação de Ameaça Interna', href: '/' },
-        { id: 'remote-access', label: 'Acesso Remoto e Terceiros', href: '/' },
-        { id: 'session-recording', label: 'Gravação de Acesso Privilegiado', href: '/' },
-        { id: 'privilege-abuse', label: 'Abuso de Privilégios', href: '/' },
-        { id: 'hardcoded-passwords', label: 'Senhas Hardcoded', href: '/' },
-      ],
-    },
-    {
-      id: 'use-case-2',
-      title: 'Por Tipo de Solução',
-      links: [
-        { id: 'password-reset', label: 'Redefinição de Senhas', href: '/' },
-        { id: 'cyber-insurance', label: 'Seguro Cibernético', href: '/' },
-        { id: 'machine-identity', label: 'Identidade de Máquina', href: '/' },
-        {
-          id: 'itdr',
-          label: 'Detecção e Resposta a Ameaças de Identidade (ITDR)',
-          href: '/',
-        },
-      ],
-    },
-    {
-      id: 'industry',
-      title: 'Por Indústria',
-      links: [
-        { id: 'energy', label: 'Energia e Infraestrutura', href: '/' },
-        { id: 'financial', label: 'Financeira', href: '/' },
-        { id: 'government', label: 'Governamental', href: '/' },
-        { id: 'healthcare', label: 'Saúde', href: '/' },
-        { id: 'legal', label: 'Jurídico', href: '/' },
-        { id: 'telecom', label: 'Telecomunicações', href: '/' },
-        { id: 'retail', label: 'Varejo', href: '/' },
-      ],
-    },
-    {
-      id: 'certification',
-      title: 'Por Certificação',
-      links: [
-        { id: 'pci-dss', label: 'PCI DSS', href: '/' },
-        { id: 'sox', label: 'SOX', href: '/' },
-        { id: 'iso-27001', label: 'ISO 27001', href: '/' },
-        { id: 'hipaa', label: 'HIPAA', href: '/' },
-        { id: 'nist', label: 'NIST', href: '/' },
-        { id: 'lgpd', label: 'LGPD', href: '/' },
-        { id: 'iso-62443', label: 'ISO | 62443 | 4.0', href: '/' },
-        { id: 'sama', label: 'SAMA', href: '/' },
-        { id: 'ksa-nca-ntc', label: 'KSA | NCA | NTC', href: '/' },
-      ],
-    },
-  ],
-}
-
-// ── Services ────────────────────────────────────────────────────────
-
-export const panelServices: NavCardsData = {
-  cards: [
-    {
-      id: 'deployment',
-      title: 'Implantação',
-      description:
-        'Nós e nossos parceiros oferecemos serviços profissionais para a implementação de nossas soluções, incluindo configuração inicial, customização e consultoria.',
-      ctaLabel: 'Veja Implementação',
-      ctaHref: '/',
-    },
-    {
-      id: 'support',
-      title: 'Suporte',
-      description:
-        'Oferecemos o melhor suporte do mercado e em português para todos os nossos clientes. Saiba mais sobre nossos serviços, recursos e como contatar nosso time aqui.',
-      ctaLabel: 'Acesse a Central de Suporte',
-      ctaHref: '/',
-    },
-    {
-      id: 'training',
-      title: 'Treinamento e Certificação',
-      description:
-        'Acesse guias, documentação e vídeos para entender melhor sobre nossos produtos no nosso portal de e-learning.',
-      ctaLabel: 'Veja Treinamentos & Certificados',
-      ctaHref: '/',
-    },
-  ],
-}
-
-// ── Partners ────────────────────────────────────────────────────────
-
-export const panelPartners: NavPartnersData = {
-  linkColumn: {
-    id: 'partner-program',
-    title: 'Programa de Parceria Affinity',
-    links: [
-      { id: 'about-program', label: 'Sobre o Programa', href: '/' },
-      { id: 'become-partner', label: 'Torne-se um Parceiro', href: '/' },
-      { id: 'azure', label: 'Segura® na Azure', href: '/' },
-      { id: 'linkedin', label: 'Grupo Parceiros Segura® no LinkedIn', href: '/' },
+  const panelPlatform: NavPanelData = {
+    items: [
+      {
+        id: 'privileged-access',
+        title: t('panels.platform.items.privilegedAccess.title'),
+        description: t('panels.platform.items.privilegedAccess.description'),
+        href: '/',
+      },
+      {
+        id: 'endpoint',
+        title: t('panels.platform.items.endpoint.title'),
+        description: t('panels.platform.items.endpoint.description'),
+        href: '/',
+      },
+      {
+        id: 'multi-cloud',
+        title: t('panels.platform.items.multiCloud.title'),
+        description: t('panels.platform.items.multiCloud.description'),
+        href: '/',
+      },
+      {
+        id: 'devops',
+        title: t('panels.platform.items.devops.title'),
+        description: t('panels.platform.items.devops.description'),
+        href: '/',
+      },
+      {
+        id: 'certificates',
+        title: t('panels.platform.items.certificates.title'),
+        description: t('panels.platform.items.certificates.description'),
+        href: '/',
+      },
+      {
+        id: 'remote-work',
+        title: t('panels.platform.items.remoteWork.title'),
+        description: t('panels.platform.items.remoteWork.description'),
+        href: '/',
+      },
+      {
+        id: 'personal-passwords',
+        title: t('panels.platform.items.personalPasswords.title'),
+        description: t('panels.platform.items.personalPasswords.description'),
+        href: '/',
+      },
+      {
+        id: 'infrastructure',
+        title: t('panels.platform.items.infrastructure.title'),
+        description: t('panels.platform.items.infrastructure.description'),
+        href: '/',
+      },
     ],
-  },
-  ctaCard: {
-    title: 'Veja Nossos Parceiros',
-    description:
-      'Trabalhamos com parceiros em todo o mundo para oferecer nossa solução líder à sua organização.',
-    ctaLabel: 'Encontre um Parceiro ›',
-    ctaHref: '/',
-  },
-}
+    banner: {
+      title: t('panels.platform.banner.title'),
+      description: t('panels.platform.banner.description'),
+      ctaLabel: t('panels.platform.banner.ctaLabel'),
+      ctaHref: '/',
+    },
+  }
 
-// ── Company ─────────────────────────────────────────────────────────
+  const panelSolutions: NavColumnsData = {
+    columns: [
+      {
+        id: 'use-case-1',
+        title: t('panels.solutions.columns.useCase.title'),
+        links: [
+          { id: 'audit', label: t('panels.solutions.columns.useCase.links.audit'), href: '/' },
+          {
+            id: 'data-theft',
+            label: t('panels.solutions.columns.useCase.links.dataTheft'),
+            href: '/',
+          },
+          { id: 'devops', label: t('panels.solutions.columns.useCase.links.devops'), href: '/' },
+          {
+            id: 'insider-threat',
+            label: t('panels.solutions.columns.useCase.links.insiderThreat'),
+            href: '/',
+          },
+          {
+            id: 'remote-access',
+            label: t('panels.solutions.columns.useCase.links.remoteAccess'),
+            href: '/',
+          },
+          {
+            id: 'session-recording',
+            label: t('panels.solutions.columns.useCase.links.sessionRecording'),
+            href: '/',
+          },
+          {
+            id: 'privilege-abuse',
+            label: t('panels.solutions.columns.useCase.links.privilegeAbuse'),
+            href: '/',
+          },
+          {
+            id: 'hardcoded-passwords',
+            label: t('panels.solutions.columns.useCase.links.hardcodedPasswords'),
+            href: '/',
+          },
+        ],
+      },
+      {
+        id: 'use-case-2',
+        title: t('panels.solutions.columns.solutionType.title'),
+        links: [
+          {
+            id: 'password-reset',
+            label: t('panels.solutions.columns.solutionType.links.passwordReset'),
+            href: '/',
+          },
+          {
+            id: 'cyber-insurance',
+            label: t('panels.solutions.columns.solutionType.links.cyberInsurance'),
+            href: '/',
+          },
+          {
+            id: 'machine-identity',
+            label: t('panels.solutions.columns.solutionType.links.machineIdentity'),
+            href: '/',
+          },
+          { id: 'itdr', label: t('panels.solutions.columns.solutionType.links.itdr'), href: '/' },
+        ],
+      },
+      {
+        id: 'industry',
+        title: t('panels.solutions.columns.industry.title'),
+        links: [
+          { id: 'energy', label: t('panels.solutions.columns.industry.links.energy'), href: '/' },
+          {
+            id: 'financial',
+            label: t('panels.solutions.columns.industry.links.financial'),
+            href: '/',
+          },
+          {
+            id: 'government',
+            label: t('panels.solutions.columns.industry.links.government'),
+            href: '/',
+          },
+          {
+            id: 'healthcare',
+            label: t('panels.solutions.columns.industry.links.healthcare'),
+            href: '/',
+          },
+          { id: 'legal', label: t('panels.solutions.columns.industry.links.legal'), href: '/' },
+          { id: 'telecom', label: t('panels.solutions.columns.industry.links.telecom'), href: '/' },
+          { id: 'retail', label: t('panels.solutions.columns.industry.links.retail'), href: '/' },
+        ],
+      },
+      {
+        id: 'certification',
+        title: t('panels.solutions.columns.certification.title'),
+        links: [
+          { id: 'pci-dss', label: 'PCI DSS', href: '/' },
+          { id: 'sox', label: 'SOX', href: '/' },
+          { id: 'iso-27001', label: 'ISO 27001', href: '/' },
+          { id: 'hipaa', label: 'HIPAA', href: '/' },
+          { id: 'nist', label: 'NIST', href: '/' },
+          { id: 'lgpd', label: 'LGPD', href: '/' },
+          { id: 'iso-62443', label: 'ISO | 62443 | 4.0', href: '/' },
+          { id: 'sama', label: 'SAMA', href: '/' },
+          { id: 'ksa-nca-ntc', label: 'KSA | NCA | NTC', href: '/' },
+        ],
+      },
+    ],
+  }
 
-export const panelCompany: NavColumnsData = {
-  columns: [
-    {
-      id: 'about-us',
-      title: 'Sobre nós',
-      links: [
-        { id: 'meet-segura', label: 'Conheça a Segura®', href: '/' },
-        { id: 'careers', label: 'Carreiras', href: '/' },
-        { id: 'contact', label: 'Contato', href: '/' },
-        { id: 'build-with-us', label: 'Construa Conosco', href: '/' },
-      ],
-    },
-    {
-      id: 'why-segura',
-      title: 'Por que Segura®',
-      links: [
-        { id: 'advantage', label: 'A vantagem da Segura®', href: '/' },
-        { id: 'pricing', label: 'Preços', href: '/' },
-        { id: 'trust-center', label: 'Trust Center', href: '/' },
-        { id: 'awards', label: 'Prêmios & Relatórios', href: '/' },
-        { id: 'middle-east', label: 'Segura® no Oriente Médio', href: '/' },
-        { id: 'jiujitciso', label: 'Segura@ JiuJitCISO', href: '/' },
-      ],
-    },
-    {
-      id: 'news',
-      title: 'Notícias',
-      links: [
-        { id: 'press', label: 'Imprensa', href: '/' },
-        { id: 'press-room', label: 'Sala de imprensa', href: '/' },
-        { id: 'webinars-events', label: 'Webinars e Eventos', href: '/' },
-      ],
-    },
-    {
-      id: 'coe',
-      title: 'Centros de Excelência',
-      links: [
-        { id: 'sao-paulo', label: 'São Paulo Headquarter', href: '/' },
-        { id: 'riyadh', label: 'Riyadh', href: '/' },
-        { id: 'austin', label: 'Austin - EM BREVE!', href: '/' },
-        { id: 'katowice', label: 'Katowice CoE', href: '/' },
-        { id: 'kuala-lumpur', label: 'Kuala Lumpur - EM BREVE!', href: '/' },
-        { id: 'singapore', label: 'Singapura - EM BREVE!', href: '/' },
-        { id: 'manila', label: 'Manila - EM BREVE!', href: '/' },
-      ],
-    },
-  ],
-}
+  const panelServices: NavCardsData = {
+    cards: [
+      {
+        id: 'deployment',
+        title: t('panels.services.deployment.title'),
+        description: t('panels.services.deployment.description'),
+        ctaLabel: t('panels.services.deployment.ctaLabel'),
+        ctaHref: '/',
+      },
+      {
+        id: 'support',
+        title: t('panels.services.support.title'),
+        description: t('panels.services.support.description'),
+        ctaLabel: t('panels.services.support.ctaLabel'),
+        ctaHref: '/',
+      },
+      {
+        id: 'training',
+        title: t('panels.services.training.title'),
+        description: t('panels.services.training.description'),
+        ctaLabel: t('panels.services.training.ctaLabel'),
+        ctaHref: '/',
+      },
+    ],
+  }
 
-// ── Resources ───────────────────────────────────────────────────────
+  const panelPartners: NavPartnersData = {
+    linkColumn: {
+      id: 'partner-program',
+      title: t('panels.partners.columnTitle'),
+      links: [
+        { id: 'about-program', label: t('panels.partners.links.aboutProgram'), href: '/' },
+        { id: 'become-partner', label: t('panels.partners.links.becomePartner'), href: '/' },
+        { id: 'azure', label: t('panels.partners.links.azure'), href: '/' },
+        { id: 'linkedin', label: t('panels.partners.links.linkedin'), href: '/' },
+      ],
+    },
+    ctaCard: {
+      title: t('panels.partners.ctaCard.title'),
+      description: t('panels.partners.ctaCard.description'),
+      ctaLabel: t('panels.partners.ctaCard.ctaLabel'),
+      ctaHref: '/',
+    },
+  }
 
-export const panelResources: NavColumnsData = {
-  columns: [
-    {
-      id: 'product-info',
-      title: 'Informações do Produto',
-      links: [
-        { id: 'datasheets', label: 'Datasheets', href: '/', external: true },
-        { id: 'architecture', label: 'Arquitetura', href: '/' },
-        { id: 'integrations', label: 'Integrações', href: '/' },
-        { id: 'security', label: 'Segurança', href: '/' },
-        { id: 'docs', label: 'Documentação', href: '/', external: true },
-        { id: 'case-studies', label: 'Cases de Clientes', href: '/' },
-      ],
-    },
-    {
-      id: 'cyber-info',
-      title: 'Informações sobre Cibersegurança',
-      links: [
-        { id: 'blog', label: 'Blog', href: '/' },
-        { id: 'pamaturity', label: 'PAMaturity', href: '/' },
-        { id: 'pam-101', label: 'Gestão de Acesso Privilegiado 101', href: '/' },
-        {
-          id: 'attack-surface',
-          label: 'Guia para Gestão de Superfície de Ataque',
-          href: '/',
-        },
-        {
-          id: 'cloud-security',
-          label: 'Segurança em Nuvem: 5 Motivos para se preocupar',
-          href: '/',
-        },
-        { id: 'metrics', label: '16 Métricas para Proteção Cibernética', href: '/' },
-        { id: 'pam-cost', label: 'Quanto Custa Implementar PAM', href: '/' },
-        {
-          id: 'identity-intelligence',
-          label: 'Inteligência em Segurança de Identidade',
-          href: '/',
-        },
-      ],
-    },
-    {
-      id: 'reports',
-      title: 'Relatórios',
-      links: [
-        { id: 'gartner-2025', label: 'Relatório Gartner Magic Quadrant 2025', href: '/' },
-        {
-          id: 'softwarereviews',
-          label: 'SoftwareReviews Data Quadrant Report Privileged Access Management 2024',
-          href: '/',
-          external: true,
-        },
-        {
-          id: 'kuppingercole',
-          label: 'KuppingerCole 2023 Leadership Compass Report for Privileged Access Management',
-          href: '/',
-          external: true,
-        },
-        {
-          id: 'gartner-2021',
-          label: 'Gartner Magic Quadrant for PAM 2021 Report',
-          href: '/',
-        },
-        {
-          id: 'frost-sullivan',
-          label: '2022 Frost & Sullivan Customer Value Leadership Award',
-          href: '/',
-        },
-      ],
-    },
-    {
-      id: 'licensing',
-      title: 'Licenciamento e Jurídico',
-      links: [
-        { id: 'terms', label: 'Termos de Uso', href: '/' },
-        { id: 'eula', label: 'Contrato de Licença de Usuário Final (EULA)', href: '/' },
-        { id: 'privacy-cookies', label: 'Política de Privacidade e Cookies', href: '/' },
-        { id: 'general-terms', label: 'Termos e Condições Gerais', href: '/' },
-        { id: 'operations', label: 'Operações', href: '/' },
-      ],
-    },
-  ],
+  const panelCompany: NavColumnsData = {
+    columns: [
+      {
+        id: 'about-us',
+        title: t('panels.company.columns.aboutUs.title'),
+        links: [
+          {
+            id: 'meet-segura',
+            label: t('panels.company.columns.aboutUs.links.meetSegura'),
+            href: '/',
+          },
+          { id: 'careers', label: t('panels.company.columns.aboutUs.links.careers'), href: '/' },
+          { id: 'contact', label: t('panels.company.columns.aboutUs.links.contact'), href: '/' },
+          {
+            id: 'build-with-us',
+            label: t('panels.company.columns.aboutUs.links.buildWithUs'),
+            href: '/',
+          },
+        ],
+      },
+      {
+        id: 'why-segura',
+        title: t('panels.company.columns.whySegura.title'),
+        links: [
+          {
+            id: 'advantage',
+            label: t('panels.company.columns.whySegura.links.advantage'),
+            href: '/',
+          },
+          { id: 'pricing', label: t('panels.company.columns.whySegura.links.pricing'), href: '/' },
+          {
+            id: 'trust-center',
+            label: t('panels.company.columns.whySegura.links.trustCenter'),
+            href: '/',
+          },
+          { id: 'awards', label: t('panels.company.columns.whySegura.links.awards'), href: '/' },
+          {
+            id: 'middle-east',
+            label: t('panels.company.columns.whySegura.links.middleEast'),
+            href: '/',
+          },
+          {
+            id: 'jiujitciso',
+            label: t('panels.company.columns.whySegura.links.jiujitciso'),
+            href: '/',
+          },
+        ],
+      },
+      {
+        id: 'news',
+        title: t('panels.company.columns.news.title'),
+        links: [
+          { id: 'press', label: t('panels.company.columns.news.links.press'), href: '/' },
+          { id: 'press-room', label: t('panels.company.columns.news.links.pressRoom'), href: '/' },
+          {
+            id: 'webinars-events',
+            label: t('panels.company.columns.news.links.webinarsEvents'),
+            href: '/',
+          },
+        ],
+      },
+      {
+        id: 'coe',
+        title: t('panels.company.columns.coe.title'),
+        links: [
+          { id: 'sao-paulo', label: t('panels.company.columns.coe.links.saoPaulo'), href: '/' },
+          { id: 'riyadh', label: t('panels.company.columns.coe.links.riyadh'), href: '/' },
+          { id: 'austin', label: t('panels.company.columns.coe.links.austin'), href: '/' },
+          { id: 'katowice', label: t('panels.company.columns.coe.links.katowice'), href: '/' },
+          {
+            id: 'kuala-lumpur',
+            label: t('panels.company.columns.coe.links.kualaLumpur'),
+            href: '/',
+          },
+          { id: 'singapore', label: t('panels.company.columns.coe.links.singapore'), href: '/' },
+          { id: 'manila', label: t('panels.company.columns.coe.links.manila'), href: '/' },
+        ],
+      },
+    ],
+  }
+
+  const panelResources: NavColumnsData = {
+    columns: [
+      {
+        id: 'product-info',
+        title: t('panels.resources.columns.productInfo.title'),
+        links: [
+          {
+            id: 'datasheets',
+            label: t('panels.resources.columns.productInfo.links.datasheets'),
+            href: '/',
+            external: true,
+          },
+          {
+            id: 'architecture',
+            label: t('panels.resources.columns.productInfo.links.architecture'),
+            href: '/',
+          },
+          {
+            id: 'integrations',
+            label: t('panels.resources.columns.productInfo.links.integrations'),
+            href: '/',
+          },
+          {
+            id: 'security',
+            label: t('panels.resources.columns.productInfo.links.security'),
+            href: '/',
+          },
+          {
+            id: 'docs',
+            label: t('panels.resources.columns.productInfo.links.docs'),
+            href: '/',
+            external: true,
+          },
+          {
+            id: 'case-studies',
+            label: t('panels.resources.columns.productInfo.links.caseStudies'),
+            href: '/',
+          },
+        ],
+      },
+      {
+        id: 'cyber-info',
+        title: t('panels.resources.columns.cyberInfo.title'),
+        links: [
+          { id: 'blog', label: t('panels.resources.columns.cyberInfo.links.blog'), href: '/' },
+          {
+            id: 'pamaturity',
+            label: t('panels.resources.columns.cyberInfo.links.pamaturity'),
+            href: '/',
+          },
+          { id: 'pam-101', label: t('panels.resources.columns.cyberInfo.links.pam101'), href: '/' },
+          {
+            id: 'attack-surface',
+            label: t('panels.resources.columns.cyberInfo.links.attackSurface'),
+            href: '/',
+          },
+          {
+            id: 'cloud-security',
+            label: t('panels.resources.columns.cyberInfo.links.cloudSecurity'),
+            href: '/',
+          },
+          {
+            id: 'metrics',
+            label: t('panels.resources.columns.cyberInfo.links.metrics'),
+            href: '/',
+          },
+          {
+            id: 'pam-cost',
+            label: t('panels.resources.columns.cyberInfo.links.pamCost'),
+            href: '/',
+          },
+          {
+            id: 'identity-intelligence',
+            label: t('panels.resources.columns.cyberInfo.links.identityIntelligence'),
+            href: '/',
+          },
+        ],
+      },
+      {
+        id: 'reports',
+        title: t('panels.resources.columns.reports.title'),
+        links: [
+          {
+            id: 'gartner-2025',
+            label: t('panels.resources.columns.reports.links.gartner2025'),
+            href: '/',
+          },
+          {
+            id: 'softwarereviews',
+            label: t('panels.resources.columns.reports.links.softwarereviews'),
+            href: '/',
+            external: true,
+          },
+          {
+            id: 'kuppingercole',
+            label: t('panels.resources.columns.reports.links.kuppingercole'),
+            href: '/',
+            external: true,
+          },
+          {
+            id: 'gartner-2021',
+            label: t('panels.resources.columns.reports.links.gartner2021'),
+            href: '/',
+          },
+          {
+            id: 'frost-sullivan',
+            label: t('panels.resources.columns.reports.links.frostSullivan'),
+            href: '/',
+          },
+        ],
+      },
+      {
+        id: 'licensing',
+        title: t('panels.resources.columns.licensing.title'),
+        links: [
+          { id: 'terms', label: t('panels.resources.columns.licensing.links.terms'), href: '/' },
+          { id: 'eula', label: t('panels.resources.columns.licensing.links.eula'), href: '/' },
+          {
+            id: 'privacy-cookies',
+            label: t('panels.resources.columns.licensing.links.privacyCookies'),
+            href: '/',
+          },
+          {
+            id: 'general-terms',
+            label: t('panels.resources.columns.licensing.links.generalTerms'),
+            href: '/',
+          },
+          {
+            id: 'operations',
+            label: t('panels.resources.columns.licensing.links.operations'),
+            href: '/',
+          },
+        ],
+      },
+    ],
+  }
+
+  return {
+    panelPlatform,
+    panelSolutions,
+    panelServices,
+    panelPartners,
+    panelCompany,
+    panelResources,
+  }
 }

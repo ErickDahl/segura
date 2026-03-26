@@ -30,15 +30,19 @@ const partners = [
   { id: 'partner-12', src: partner12 },
 ]
 
+import { useTranslation } from 'react-i18next'
+
 const { root, grid, logo } = partnersVariants()
 
 const Partners = () => {
+  const { t } = useTranslation()
+
   return (
     <section className={root()}>
       <Container layout="col">
         <div className="flex w-full flex-col items-center gap-10 max-md:max-w-full">
           <Heading as="h2" size="sm">
-            Empresas líderes em mais de 70 países confiam na Segura®
+            {t('partners.heading')}
           </Heading>
           <div className={grid()}>
             {partners.map(({ id, src }) => (

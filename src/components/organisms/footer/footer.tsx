@@ -1,6 +1,7 @@
 import { Container } from '@/components/atoms/container/container'
 import { Link } from '@/components/atoms/link/link'
 import { footerVariants } from './footer.variants'
+import { useTranslation } from 'react-i18next'
 
 import footerLogo from '@/assets/images/footer/1.png'
 import aiIcon1 from '@/assets/images/footer/2.svg'
@@ -14,61 +15,6 @@ import socialFacebook from '@/assets/images/footer/9.svg'
 import socialInstagram from '@/assets/images/footer/10.svg'
 import socialYoutube from '@/assets/images/footer/11.svg'
 import socialWhatsapp from '@/assets/images/footer/12.svg'
-
-const navColumns = [
-  {
-    id: 'servicos',
-    title: 'Serviços',
-    links: [
-      { id: 'doc', label: 'Documentação', href: '/' },
-      { id: 'centro', label: 'Centro de soluções', href: '/' },
-      { id: 'treinamento', label: 'Treinamento e Certificação', href: '/' },
-      { id: 'implantacao', label: 'Implantação', href: '/' },
-      { id: 'suporte', label: 'Política de Suporte', href: '/' },
-    ],
-  },
-  {
-    id: 'recursos',
-    title: 'Recursos',
-    links: [
-      { id: 'materiais', label: 'Materiais Ricos', href: '/' },
-      { id: 'ebooks', label: 'eBooks', href: '/' },
-      { id: 'docs-tecnicos', label: 'Documentos Técnicos', href: '/' },
-      { id: 'folhas', label: 'Folhas de dados', href: '/' },
-      { id: 'pam', label: 'PAM Maturity', href: '/' },
-      { id: 'estudos', label: 'Estudos de Caso', href: '/' },
-      { id: 'webinars', label: 'Webinars e Eventos', href: '/' },
-    ],
-  },
-  {
-    id: 'produtos',
-    title: 'Produtos',
-    links: [
-      { id: 'solucoes', label: 'Soluções', href: '/' },
-      { id: 'parceiro', label: 'Torne-se um parceiro', href: '/' },
-      { id: 'casos', label: 'Casos de Uso', href: '/' },
-    ],
-  },
-  {
-    id: 'segura',
-    title: 'Segura®',
-    links: [
-      { id: 'sobre', label: 'Sobre nós', href: '/' },
-      { id: 'conquistas', label: 'Conquistas', href: '/' },
-      { id: 'trabalhe', label: 'Trabalhe conosco', href: '/' },
-      { id: 'operacoes', label: 'Operações', href: '/' },
-      { id: 'termos', label: 'Termos de Uso', href: '/' },
-      { id: 'privacidade', label: 'Política de Privacidade e Cookies', href: '/' },
-      { id: 'seguranca', label: 'Política de Segurança da Informação', href: '/' },
-      { id: 'denuncias', label: 'Canal de Denúncias', href: '/' },
-    ],
-  },
-  {
-    id: 'endereco',
-    title: 'Endereço',
-    links: [],
-  },
-]
 
 const aiIcons = [
   { id: 'chatgpt', src: aiIcon1, alt: 'ChatGPT', href: '/' },
@@ -114,26 +60,85 @@ const {
 } = footerVariants()
 
 const Footer = () => {
+  const { t } = useTranslation()
+
+  const navColumns = [
+    {
+      id: 'services',
+      title: t('footer.navColumns.services.title'),
+      links: [
+        { id: 'doc', label: t('footer.navColumns.services.links.documentation'), href: '/' },
+        { id: 'centro', label: t('footer.navColumns.services.links.solutionCenter'), href: '/' },
+        { id: 'treinamento', label: t('footer.navColumns.services.links.training'), href: '/' },
+        { id: 'implantacao', label: t('footer.navColumns.services.links.deployment'), href: '/' },
+        { id: 'suporte', label: t('footer.navColumns.services.links.supportPolicy'), href: '/' },
+      ],
+    },
+    {
+      id: 'resources',
+      title: t('footer.navColumns.resources.title'),
+      links: [
+        { id: 'materiais', label: t('footer.navColumns.resources.links.richMaterials'), href: '/' },
+        { id: 'ebooks', label: t('footer.navColumns.resources.links.ebooks'), href: '/' },
+        {
+          id: 'docs-tecnicos',
+          label: t('footer.navColumns.resources.links.technicalDocs'),
+          href: '/',
+        },
+        { id: 'folhas', label: t('footer.navColumns.resources.links.datasheets'), href: '/' },
+        { id: 'pam', label: t('footer.navColumns.resources.links.pamMaturity'), href: '/' },
+        { id: 'estudos', label: t('footer.navColumns.resources.links.caseStudies'), href: '/' },
+        { id: 'webinars', label: t('footer.navColumns.resources.links.webinarsEvents'), href: '/' },
+      ],
+    },
+    {
+      id: 'products',
+      title: t('footer.navColumns.products.title'),
+      links: [
+        { id: 'solucoes', label: t('footer.navColumns.products.links.solutions'), href: '/' },
+        { id: 'parceiro', label: t('footer.navColumns.products.links.becomePartner'), href: '/' },
+        { id: 'casos', label: t('footer.navColumns.products.links.useCases'), href: '/' },
+      ],
+    },
+    {
+      id: 'segura',
+      title: t('footer.navColumns.segura.title'),
+      links: [
+        { id: 'sobre', label: t('footer.navColumns.segura.links.aboutUs'), href: '/' },
+        { id: 'conquistas', label: t('footer.navColumns.segura.links.achievements'), href: '/' },
+        { id: 'trabalhe', label: t('footer.navColumns.segura.links.workWithUs'), href: '/' },
+        { id: 'operacoes', label: t('footer.navColumns.segura.links.operations'), href: '/' },
+        { id: 'termos', label: t('footer.navColumns.segura.links.termsOfUse'), href: '/' },
+        { id: 'privacidade', label: t('footer.navColumns.segura.links.privacyPolicy'), href: '/' },
+        { id: 'seguranca', label: t('footer.navColumns.segura.links.securityPolicy'), href: '/' },
+        { id: 'denuncias', label: t('footer.navColumns.segura.links.whistleblower'), href: '/' },
+      ],
+    },
+    {
+      id: 'address',
+      title: t('footer.navColumns.address.title'),
+      links: [],
+    },
+  ]
+
   return (
     <footer className={root()}>
       <Container as="div" layout="col" className={wrapper()}>
         <div className={topRow()}>
           <div className={connectCard()}>
-            <h3 className={connectTitle()}>FIQUE CONECTADO</h3>
-            <p className={connectDescription()}>
-              Fique por dentro das melhores práticas de segurança, eventos e webinars futuros.
-            </p>
+            <h3 className={connectTitle()}>{t('footer.connectTitle')}</h3>
+            <p className={connectDescription()}>{t('footer.connectDescription')}</p>
             <Link variant="secondary-ghost" size="sm">
-              Saiba como ›
+              {t('footer.connectCta')}
             </Link>
           </div>
           <div className={navGrid()}>
             {navColumns.map(({ id, title, links }) => (
               <div key={id} className={navColumn()}>
                 <h4 className={navTitle()}>{title}</h4>
-                {id === 'endereco' ? (
+                {id === 'address' ? (
                   <p className={navLink()}>
-                    Rua Joaquim Antunes, 767. São Paulo — SP — Brasil <br /> <b>11 3069 3910</b>
+                    {t('footer.navColumns.address.text')} <br /> <b>11 3069 3910</b>
                   </p>
                 ) : (
                   links.map(({ id: linkId, label, href }) => (
@@ -151,7 +156,7 @@ const Footer = () => {
       <div className={bottomBar()}>
         <Container as="div" className={bottomContent()}>
           <div className={leftSection()}>
-            <p className={aiLabel()}>Pergunte para a IA o que torna a Segura® diferente</p>
+            <p className={aiLabel()}>{t('footer.aiLabel')}</p>
             <div className={aiIconsClass()}>
               {aiIcons.map(({ id, src, alt, href }) => (
                 <a key={id} href={href}>
@@ -159,9 +164,7 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            <p className={copyright()}>
-              Copyright © 2026 Segura MT4 Tecnologia | Todos os direitos reservados.
-            </p>
+            <p className={copyright()}>{t('footer.copyright')}</p>
           </div>
           <div className={rightSection()}>
             <div className={socialIcons()}>
@@ -173,13 +176,13 @@ const Footer = () => {
             </div>
             <div className={legalLinks()}>
               <a href="/termos" className={legalLink()}>
-                Termos
+                {t('footer.legal.terms')}
               </a>
               <a href="/privacidade" className={legalLink()}>
-                Privacidade
+                {t('footer.legal.privacy')}
               </a>
               <a href="/cookies" className={legalLink()}>
-                Cookies
+                {t('footer.legal.cookies')}
               </a>
             </div>
           </div>

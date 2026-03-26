@@ -20,30 +20,34 @@ import { NavCards } from '@/components/molecules/nav-panel/nav-cards/nav-cards'
 import { NavColumns } from '@/components/molecules/nav-panel/nav-columns/nav-columns'
 import { NavPanel } from '@/components/molecules/nav-panel/nav-panel/nav-panel'
 import { NavPartners } from '@/components/molecules/nav-panel/nav-partners/nav-partners'
-import {
-  panelCompany,
-  panelPartners,
-  panelPlatform,
-  panelResources,
-  panelServices,
-  panelSolutions,
-} from './header.data'
+import { useHeaderData } from './header.data'
 import { headerVariants } from './header.variants'
+import { useTranslation } from 'react-i18next'
 
 const { root, nav, navActions, ctaLink } = headerVariants()
 
 const Header = () => {
+  const { t, i18n } = useTranslation()
+  const {
+    panelPlatform,
+    panelSolutions,
+    panelServices,
+    panelPartners,
+    panelCompany,
+    panelResources,
+  } = useHeaderData()
+
   return (
     <header className={root()}>
       <AnnouncementBar>
-        A senhasegura agora é Segura®! <a href="/">Conheça a nova marca ›</a>
+        {t('header.announcement')} <a href="/">{t('header.announcementLink')}</a>
       </AnnouncementBar>
       <TopMenu
         items={[
-          { href: '/', bold: 'Seja parceiro' },
-          { href: '/', label: 'Contato' },
-          { href: '/', label: 'Suporte' },
-          { href: '/', label: 'Docs' },
+          { href: '/', bold: t('header.topMenu.partner') },
+          { href: '/', label: t('header.topMenu.contact') },
+          { href: '/', label: t('header.topMenu.support') },
+          { href: '/', label: t('header.topMenu.docs') },
         ]}
       />
       <section className={nav()}>
@@ -52,26 +56,26 @@ const Header = () => {
           <MainNav>
             <MainNavToggle />
             <MainNavList>
-              <MainNavItem label="Plataforma">
+              <MainNavItem label={t('header.nav.platform')}>
                 <NavPanel data={panelPlatform} />
               </MainNavItem>
-              <MainNavItem label="Soluções">
+              <MainNavItem label={t('header.nav.solutions')}>
                 <NavColumns data={panelSolutions} />
               </MainNavItem>
-              <MainNavItem label="Serviços">
+              <MainNavItem label={t('header.nav.services')}>
                 <NavCards data={panelServices} />
               </MainNavItem>
-              <MainNavItem label="Parceiros">
+              <MainNavItem label={t('header.nav.partners')}>
                 <NavPartners data={panelPartners} />
               </MainNavItem>
-              <MainNavItem label="Empresa">
+              <MainNavItem label={t('header.nav.company')}>
                 <NavColumns data={panelCompany} />
               </MainNavItem>
-              <MainNavItem label="Recursos">
+              <MainNavItem label={t('header.nav.resources')}>
                 <NavColumns data={panelResources} />
               </MainNavItem>
               <Link href="/" variant="primary" size="sm" className={ctaLink()}>
-                Pedir Demo ›
+                {t('header.cta')}
               </Link>
             </MainNavList>
           </MainNav>
@@ -82,8 +86,8 @@ const Header = () => {
               <ChevronDown size={14} aria-hidden="true" />
             </DropdownTrigger>
             <DropdownMenu>
-              <DropdownItem>English</DropdownItem>
-              <DropdownItem>Português</DropdownItem>
+              <DropdownItem onClick={() => i18n.changeLanguage('en')}>English</DropdownItem>
+              <DropdownItem onClick={() => i18n.changeLanguage('pt')}>Português</DropdownItem>
             </DropdownMenu>
           </Dropdown>
         </div>

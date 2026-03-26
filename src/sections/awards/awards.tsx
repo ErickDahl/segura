@@ -7,6 +7,7 @@ import badge3 from '@/assets/images/awards/3.avif'
 import badge4 from '@/assets/images/awards/4.avif'
 import badge5 from '@/assets/images/awards/5.avif'
 import badge6 from '@/assets/images/awards/6.avif'
+import { Trans, useTranslation } from 'react-i18next'
 
 const badges = [
   { id: 'gartner-customers', src: badge1, alt: 'Gartner Peer Insights Customers Choice 2026' },
@@ -20,12 +21,14 @@ const badges = [
 const { root, content, leftCol, grid, badge, rightCol, quote, author } = awardsVariants()
 
 const Awards = () => {
+  const { t } = useTranslation()
+
   return (
     <section className={root()}>
       <Container as="div">
         <div className={content()}>
           <div className={leftCol()}>
-            <Heading as="h2">Uma solução e suporte de PAM de qualidade</Heading>
+            <Heading as="h2">{t('awards.heading')}</Heading>
             <div className={grid()}>
               {badges.map(({ id, src, alt }) => (
                 <img key={id} src={src} alt={alt} className={badge()} />
@@ -34,18 +37,15 @@ const Awards = () => {
           </div>
           <div className={rightCol()}>
             <p className={quote()}>
-              "A Segura® tem sido uma ótima solução para nós. <b>Nós o usamos diariamente</b> e nós
-              somos <b>certeza de que nossa organização está mais segura</b> com isso.
+              <Trans t={t} i18nKey="awards.quote1" components={{ bold: <b /> }} />
             </p>
             <p className={quote()}>
-              A característica de destaque da Segura® para mim é que ela é <b>intuitiva</b> e tem
-              uma <b>interface amigável.</b>
+              <Trans t={t} i18nKey="awards.quote2" components={{ bold: <b /> }} />
             </p>
             <p className={quote()}>
-              O <b>suporte ao cliente excepcional</b> fornecido pela Segura® também tem sido um
-              fator chave em nossa <b>satisfação</b> com o produto."
+              <Trans t={t} i18nKey="awards.quote3" components={{ bold: <b /> }} />
             </p>
-            <span className={author()}>- Análise do cliente, serviços de TI</span>
+            <span className={author()}>{t('awards.author')}</span>
           </div>
         </div>
       </Container>

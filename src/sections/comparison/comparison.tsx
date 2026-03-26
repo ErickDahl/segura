@@ -4,33 +4,25 @@ import { Link } from '@/components/atoms/link/link'
 import { comparisonVariants } from './comparison.variants'
 import comparisonDesktop from '@/assets/images/comparison/1.png'
 import comparisonMobile from '@/assets/images/comparison/1-mobile.gif'
+import { Trans, useTranslation } from 'react-i18next'
 
 const { root, wrapper, description, media, imageDesktop, imageMobile } = comparisonVariants()
 
 const Comparison = () => {
+  const { t } = useTranslation()
+
   return (
     <section className={root()}>
       <Container as="div" layout="col" className={wrapper()}>
-        <Heading as="h2">Por que mais equipes estão escolhendo o Segura®?</Heading>
+        <Heading as="h2">{t('comparison.heading')}</Heading>
         <p className={description()}>
-          Ouvimos a mesma história repetidamente: implantações longas, recursos ausentes e
-          ferramentas que nunca se encaixam perfeitamente. Ao contrário das soluções PAM antiquadas
-          disponíveis no mercado,{' '}
-          <b>O Segura® se encaixa em uma infraestrutura moderna sem atrasar você.</b>
+          <Trans t={t} i18nKey="comparison.description" components={{ bold: <b /> }} />
         </p>
         <div className={media()}>
-          <img
-            src={comparisonDesktop}
-            alt="Comparativo Segura vs concorrentes"
-            className={imageDesktop()}
-          />
-          <img
-            src={comparisonMobile}
-            alt="Comparativo Segura vs concorrentes"
-            className={imageMobile()}
-          />
+          <img src={comparisonDesktop} alt={t('comparison.imageAlt')} className={imageDesktop()} />
+          <img src={comparisonMobile} alt={t('comparison.imageAlt')} className={imageMobile()} />
         </div>
-        <Link>Veja a Segura® em ação ›</Link>
+        <Link>{t('comparison.cta')}</Link>
       </Container>
     </section>
   )

@@ -3,6 +3,7 @@ import { Heading } from '@/components/atoms/heading/heading'
 import { Link } from '@/components/atoms/link/link'
 import { supportVariants } from './support.variants'
 import supportImg from '@/assets/images/support/1.webp'
+import { Trans, useTranslation } from 'react-i18next'
 
 const competitors = [
   { id: 'cyberark', competitor: 'CyberArk', href: '/vs-cyberark' },
@@ -15,33 +16,28 @@ const { root, wrapper, content, textCol, description, media, image, linksRow, li
   supportVariants()
 
 const Support = () => {
+  const { t } = useTranslation()
+
   return (
     <section className={root()}>
       <Container as="div" layout="col" className={wrapper()}>
         <div className={content()}>
           <div className={textCol()}>
-            <Heading as="h2">Melhor Suporte do Mercado</Heading>
+            <Heading as="h2">{t('support.heading')}</Heading>
+            <p className={description()}>{t('support.description1')}</p>
             <p className={description()}>
-              Segura® é o provedor de PAM mais bem avaliado no Gartner Peer Insights por um motivo.
+              <Trans t={t} i18nKey="support.description2" components={{ bold: <b /> }} />
             </p>
-            <p className={description()}>
-              Nossos clientes nos dão a classificação mais alta de{' '}
-              <b>4,9 no Gartner Peer Insights e 98%</b> em Recomendação.
-            </p>
-            <Link>Peça uma Demo ›</Link>
+            <Link>{t('support.cta')}</Link>
           </div>
           <div className={media()}>
-            <img
-              src={supportImg}
-              alt="Comparativo de avaliações Gartner Peer Insights"
-              className={image()}
-            />
+            <img src={supportImg} alt={t('support.imageAlt')} className={image()} />
           </div>
         </div>
         <div className={linksRow()}>
           {competitors.map(({ id, competitor, href }) => (
             <a key={id} href={href} className={linkItem()}>
-              <b>Segura®</b> vs. {competitor} »
+              <b>Segura®</b> {t('support.vsLabel')} {competitor} »
             </a>
           ))}
         </div>
