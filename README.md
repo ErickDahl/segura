@@ -1,75 +1,83 @@
-# React + TypeScript + Vite
+# Segura® — Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Institutional landing page for Segura® (formerly senhasegura), a Privileged Access Management (PAM) platform. Built with React 19, Vite, and full internationalization support (PT/EN).
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Layer           | Technology                                       |
+| --------------- | ------------------------------------------------ |
+| Framework       | React 19 + Vite 8                                |
+| Language        | TypeScript 5.9                                   |
+| Styling         | Tailwind CSS 4 + tailwind-variants               |
+| i18n            | i18next 25 + react-i18next 16 + LanguageDetector |
+| Icons           | Lucide React                                     |
+| Compiler        | React Compiler (via Babel)                       |
+| Package manager | pnpm                                             |
+| Deploy          | Netlify                                          |
 
-## React Compiler
+## Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **Bilingual (PT-BR / EN-US)** — automatic browser detection, language switch via header dropdown
+- **Dynamic page title** — `document.title` updated according to the active language
+- **Language-specific images** — articles section loads images from `pt-br/` or `en-us/` accordingly
+- **Atomic components** — Atoms → Molecules → Organisms → Sections architecture
+- **Code quality** — ESLint + Prettier + Husky + lint-staged + Commitlint (Conventional Commits)
 
-Note: This will impact Vite dev & build performances.
+## Sections
 
-## Expanding the ESLint configuration
+`Hero` · `Advantages` · `Partners` · `WhySegura` · `Testimonials` · `Compliance` · `Leadership` · `Recognition` · `Comparison` · `Support` · `Awards` · `FAQs` · `Articles` · `Stripe`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Development
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# Install dependencies
+pnpm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Development server
+pnpm dev
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Type checking
+pnpm typecheck
+
+# Lint
+pnpm lint
+
+# Format code
+pnpm format
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Build & Deploy
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Generate production build
+pnpm build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Preview build locally
+pnpm preview
+```
+
+Deployment is handled automatically by Netlify on every push to the main branch, as configured in [`netlify.toml`](./netlify.toml).
+
+## Structure
+
+```
+src/
+├── assets/
+│   └── images/
+│       └── articles/
+│           ├── en-us/   # English images
+│           └── pt-br/   # Portuguese images
+├── components/
+│   ├── atoms/           # AnnouncementBar, Container, Heading, Link, Logo, NavList, StatCard, WhatsappButton
+│   ├── molecules/       # Accordion, Card, Dropdown, MainNav, NavPanel, TopMenu
+│   └── organisms/       # Header, Footer
+├── i18n/
+│   ├── index.ts         # i18next configuration
+│   └── locales/
+│       ├── en.ts
+│       └── pt.ts
+├── sections/            # 14 landing page sections
+├── styles/
+│   └── global.css
+└── utils/
 ```
