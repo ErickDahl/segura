@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "deploy": "netlify deploy --prod --dir=dist",
+    "deploy:preview": "netlify deploy --dir=dist"
   },
   "dependencies": {
     "i18next": "^25.10.5",
