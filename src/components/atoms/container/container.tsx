@@ -9,7 +9,7 @@ type ContainerProps = HTMLAttributes<HTMLElement> &
     as?: ContainerTag
   }
 
-const Container = ({ as: Tag = 'section', layout, className, ...props }: ContainerProps) => {
+const Container = ({ as: Tag = 'div', layout, className, ...props }: ContainerProps) => {
   return <Tag className={containerVariants({ layout, className })} {...props} />
 }
 

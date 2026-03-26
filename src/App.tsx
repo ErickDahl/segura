@@ -4,7 +4,7 @@ import { Advantages } from '@/sections/advantages/advantages'
 import { Partners } from './sections/partners/partners'
 import { Faq } from './sections/faq/faq'
 import { Testimonials } from './sections/testimonials/testimonials'
-import { Proportion } from './sections/proportion/proportion'
+import { Compliance } from './sections/compliance/compliance'
 import { Leadership } from './sections/leadership/leadership'
 import { Recognition } from './sections/recognition/recognition'
 import { Comparison } from './sections/comparison/comparison'
@@ -17,19 +17,21 @@ function App() {
   return (
     <>
       <Header />
-      <Hero />
-      <Advantages />
-      <Partners />
-      <Faq />
-      <Testimonials />
-      <Proportion />
-      <Leadership />
-      <Recognition />
-      <Comparison />
-      <Support />
-      <Awards />
-      <Articles />
-      <Stripe />
+      <main>
+        <Hero />
+        <Advantages />
+        <Partners />
+        <Faq />
+        <Testimonials />
+        <Compliance />
+        <Leadership />
+        <Recognition />
+        <Comparison />
+        <Support />
+        <Awards />
+        <Articles />
+        <Stripe />
+      </main>
     </>
   )
 }

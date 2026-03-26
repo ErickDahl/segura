@@ -6,7 +6,7 @@ const { root, wrapper, content, description, link } = stripeVariants()
 const Stripe = () => {
   return (
     <section className={root()}>
-      <Container className={wrapper()}>
+      <Container as="div" className={wrapper()}>
         <div className={content()}>
           <p className={description()}>
             Confira nossa biblioteca de recursos práticos para equipes, gerentes e executivos de

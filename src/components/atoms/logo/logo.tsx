@@ -1,5 +1,5 @@
 import type { ImgHTMLAttributes } from 'react'
-import logoSrc from '@/assets/images/logo.svg'
+import logoSrc from '@/assets/images/header/logo.svg'
 
 type LogoProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt'>
 

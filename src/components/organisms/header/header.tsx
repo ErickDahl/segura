@@ -14,7 +14,8 @@ import {
   MainNavToggle,
 } from '@/components/molecules/main-nav/main-nav'
 import { TopMenu } from '@/components/molecules/top-menu/top-menu'
-import { Globe, ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
+import globeIcon from '@/assets/images/header/1.svg'
 import { headerVariants } from './header.variants'
 
 const { root, nav, navActions, ctaLink } = headerVariants()
@@ -28,7 +29,9 @@ const Header = () => {
       <TopMenu
         items={[
           { href: '/', bold: 'Seja parceiro' },
-          { label: 'About', href: '/about' },
+          { href: '/', label: 'Contato' },
+          { href: '/', label: 'Suporte' },
+          { href: '/', label: 'Docs' },
         ]}
       />
       <section className={nav()}>
@@ -63,7 +66,7 @@ const Header = () => {
 
           <Dropdown>
             <DropdownTrigger>
-              <Globe size={20} aria-hidden="true" />
+              <img src={globeIcon} alt="" aria-hidden="true" className="h-5 w-5" />
               <ChevronDown size={14} aria-hidden="true" />
             </DropdownTrigger>
             <DropdownMenu>

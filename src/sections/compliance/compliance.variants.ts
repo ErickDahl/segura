@@ -1,6 +1,6 @@
 import { tv } from 'tailwind-variants'
 
-export const proportionVariants = tv({
+export const complianceVariants = tv({
   slots: {
     root: 'bg-dark',
     wrapper: 'items-start gap-10',
@@ -13,6 +13,6 @@ export const proportionVariants = tv({
     badgesSection: 'flex w-full flex-col gap-4',
     badgesLabel: 'text-subtle text-base',
     badgesRow: 'flex w-full flex-col items-center gap-3 lg:flex-row lg:gap-8',
-    badgeIcon: 'h-5 w-auto',
+    badgeIcon: 'h-5 w-auto transition-all duration-150 group-hover:brightness-0',
   },
 })

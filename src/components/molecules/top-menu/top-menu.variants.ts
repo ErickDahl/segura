@@ -2,7 +2,7 @@ import { tv } from 'tailwind-variants'
 
 export const topMenuVariants = tv({
   slots: {
-    root: 'bg-subtle w-full py-2',
+    root: 'bg-subtle w-full py-3',
     wrapper: 'container mx-auto w-full max-lg:max-w-full',
     list: 'text-mid flex items-center justify-around gap-1 px-0 text-sm sm:px-1 lg:justify-end lg:gap-4 lg:px-3',
     item: '',
