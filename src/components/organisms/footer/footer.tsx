@@ -71,11 +71,11 @@ const navColumns = [
 ]
 
 const aiIcons = [
-  { id: 'chatgpt', src: aiIcon1, alt: 'ChatGPT' },
-  { id: 'perplexity', src: aiIcon2, alt: 'Perplexity' },
-  { id: 'gemini', src: aiIcon3, alt: 'Gemini' },
-  { id: 'ai-star', src: aiIcon4, alt: 'AI' },
-  { id: 'claude', src: aiIcon5, alt: 'Claude' },
+  { id: 'chatgpt', src: aiIcon1, alt: 'ChatGPT', href: '/' },
+  { id: 'perplexity', src: aiIcon2, alt: 'Perplexity', href: '/' },
+  { id: 'gemini', src: aiIcon3, alt: 'Gemini', href: '/' },
+  { id: 'ai-star', src: aiIcon4, alt: 'AI', href: '/' },
+  { id: 'claude', src: aiIcon5, alt: 'Claude', href: '/' },
 ]
 
 const socialLinks = [
@@ -153,8 +153,10 @@ const Footer = () => {
           <div className={leftSection()}>
             <p className={aiLabel()}>Pergunte para a IA o que torna a Segura® diferente</p>
             <div className={aiIconsClass()}>
-              {aiIcons.map(({ id, src, alt }) => (
-                <img key={id} src={src} alt={alt} className={aiIcon()} />
+              {aiIcons.map(({ id, src, alt, href }) => (
+                <a key={id} href={href}>
+                  <img src={src} alt={alt} className={aiIcon()} />
+                </a>
               ))}
             </div>
             <p className={copyright()}>
