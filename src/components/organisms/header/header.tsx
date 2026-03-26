@@ -70,8 +70,8 @@ const Header = () => {
               <ChevronDown size={14} aria-hidden="true" />
             </DropdownTrigger>
             <DropdownMenu>
-              <DropdownItem>Portugues</DropdownItem>
-              <DropdownItem>ingles</DropdownItem>
+              <DropdownItem>English</DropdownItem>
+              <DropdownItem>Português</DropdownItem>
             </DropdownMenu>
           </Dropdown>
         </div>
