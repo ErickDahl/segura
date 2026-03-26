@@ -15,10 +15,13 @@ import {
 } from '@/components/molecules/main-nav/main-nav'
 import { TopMenu } from '@/components/molecules/top-menu/top-menu'
 import { Globe, ChevronDown } from 'lucide-react'
+import { headerVariants } from './header.variants'
+
+const { root, nav, navActions, ctaLink } = headerVariants()
 
 const Header = () => {
   return (
-    <header className="relative w-full overflow-x-clip">
+    <header className={root()}>
       <AnnouncementBar>
         A senhasegura agora é Segura®! <a href="/">Conheça a nova marca ›</a>
       </AnnouncementBar>
@@ -28,9 +31,9 @@ const Header = () => {
           { label: 'About', href: '/about' },
         ]}
       />
-      <section className="mx-auto flex max-w-[90%] items-center justify-between gap-2 py-2 text-sm lg:justify-center">
+      <section className={nav()}>
         <Logo className="shrink-0" />
-        <div className="flex gap-2">
+        <div className={navActions()}>
           <MainNav>
             <MainNavToggle />
             <MainNavList>
@@ -52,7 +55,7 @@ const Header = () => {
               <MainNavItem label="Recursos">
                 <p>Painel recursos</p>
               </MainNavItem>
-              <Link href="/" variant="primary" size="sm" className="mx-[14%] my-2 lg:m-0">
+              <Link href="/" variant="primary" size="sm" className={ctaLink()}>
                 Pedir Demo ›
               </Link>
             </MainNavList>

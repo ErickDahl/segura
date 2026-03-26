@@ -1,35 +1,21 @@
-import { Link } from '@/components/atoms/link/link'
-import { Heading } from '@/components/atoms/heading/heading'
 import { Header } from './components/organisms/header/header'
-import { NavList } from './components/atoms/nav-list/nav-list'
-import { Container } from './components/atoms/container/container'
+import { Hero } from '@/sections/hero/hero'
+import { Advantages } from '@/sections/advantages/advantages'
+import { Partners } from './sections/partners/partners'
+import { Faq } from './sections/faq/faq'
+import { Testimonials } from './sections/testimonials/testimonials'
+import { Proportion } from './sections/proportion/proportion'
 
 function App() {
   return (
     <>
       <Header />
-
-      <Container as="section">
-        <Link variant="primary">teste</Link>
-        <Link variant="secondary">teste</Link>
-        <Link variant="brand">teste</Link>
-        <Link variant="brand-ghost">teste</Link>
-        <Link variant="brand-ghost-invert">teste</Link>
-        <Link variant="secondary-ghost">teste</Link>
-
-        <NavList
-          direction="row"
-          items={[
-            { label: 'a', href: '#' },
-            { label: 'b', href: '#' },
-            { label: 'c', href: '#' },
-          ]}
-        />
-
-        <Heading size="display" color="brand">
-          Vite + React
-        </Heading>
-      </Container>
+      <Hero />
+      <Advantages />
+      <Partners />
+      <Faq />
+      <Testimonials />
+      <Proportion />
     </>
   )
 }

@@ -10,7 +10,7 @@ export const mainNavVariants = tv({
       'lg:hidden',
     ],
     list: [
-      'max-lg:bg-bg flex justify-between max-lg:absolute max-lg:inset-x-0 max-lg:top-full max-lg:z-40 max-lg:w-full',
+      'flex justify-between max-lg:absolute max-lg:inset-x-0 max-lg:top-full max-lg:z-40 max-lg:w-full max-lg:bg-white',
       'max-lg:flex-col max-lg:overflow-hidden',
       'max-lg:transition-all max-lg:duration-300 max-lg:ease-out',
       'lg:flex lg:flex-row lg:items-center lg:gap-1',
@@ -34,7 +34,7 @@ export const mainNavVariants = tv({
       'max-lg:transition-all max-lg:duration-200 max-lg:ease-out',
       'lg:absolute lg:inset-x-0 lg:top-full lg:z-50',
       'lg:shadow/10 lg:shadow-lg',
-      'lg:bg-bg lg:border-brand-light/20 lg:py-8',
+      'lg:border-brand-light/20 lg:bg-white lg:py-8',
       'lg:transition-opacity lg:duration-200 lg:ease-out',
       'lg:pointer-events-none lg:max-h-0 lg:overflow-hidden lg:border-b-0 lg:opacity-0',
       'lg:group-hover/item:pointer-events-auto lg:group-hover/item:max-h-screen lg:group-hover/item:overflow-visible lg:group-hover/item:border-b lg:group-hover/item:opacity-100',

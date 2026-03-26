@@ -4,7 +4,7 @@ export const linkVariants = tv({
   base: [
     'flex w-fit cursor-pointer items-center gap-2',
     'font-display rounded-[10px] border-2 font-semibold',
-    'px-4 py-2 whitespace-nowrap',
+    'max-w-96 px-4 py-3',
     'transition-all duration-150 ease-in-out',
     'focus-visible:outline-2 focus-visible:outline-offset-2',
     'disabled:pointer-events-none disabled:opacity-50',
@@ -37,9 +37,9 @@ export const linkVariants = tv({
         'hover:bg-brand-light hover:border-brand-light hover:text-dark hover:focus-visible:outline-brand-light',
       ],
       'brand-ghost-invert': [
-        'border-bg bg-transparent',
-        'text-bg focus-visible:outline-bg',
-        'hover:bg-bg hover:border-bg hover:text-brand-black hover:focus-visible:outline-bg',
+        'border-default bg-transparent',
+        'text-default focus-visible:outline-default',
+        'hover:bg-default hover:border-default hover:text-brand-black hover:focus-visible:outline-default',
       ],
     },
     size: {

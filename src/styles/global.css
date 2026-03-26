@@ -66,7 +66,7 @@ body {
   --color-brand-black: var(--brand-black);
 
   /* ── Backgrounds ─────────────────────────────────────────────────────────── */
-  --color-bg: var(--bg);
+  --color-default: var(--bg);
   --color-subtle: var(--bg-subtle);
 
   /* ── Typography ──────────────────────────────────────────────────────────── */

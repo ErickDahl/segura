@@ -7,7 +7,7 @@ export const dropdownVariants = tv({
     menu: [
       'absolute top-full left-0 z-50 w-fit',
       'p-1',
-      'border-brand-light/20 bg-bg',
+      'border-brand-light/20 bg-white',
       'shadow-dark/10 shadow-lg',
       'transition-all duration-200 ease-out',
       "before:absolute before:inset-x-0 before:-top-1 before:h-1 before:content-['']",
