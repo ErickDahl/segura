@@ -3,6 +3,7 @@ import {
   useCallback,
   useContext,
   useMemo,
+  useRef,
   useState,
   type ButtonHTMLAttributes,
   type HTMLAttributes,
@@ -18,6 +19,9 @@ type MainNavContextValue = {
   toggleMobile: () => void
   activeMobileItem: string | null
   toggleMobileItem: (label: string) => void
+  activeDesktopItem: string | null
+  openDesktopItem: (label: string) => void
+  closeDesktopItem: () => void
 }
 
 const MainNavContext = createContext<MainNavContextValue | null>(null)
@@ -37,6 +41,8 @@ type MainNavProps = HTMLAttributes<HTMLElement> & {
 const MainNavRoot = ({ children, className, ...props }: MainNavProps) => {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeMobileItem, setActiveMobileItem] = useState<string | null>(null)
+  const [activeDesktopItem, setActiveDesktopItem] = useState<string | null>(null)
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const { root } = mainNavVariants()
 
   const toggleMobile = useCallback(() => setMobileOpen((prev) => !prev), [])
@@ -45,9 +51,40 @@ const MainNavRoot = ({ children, className, ...props }: MainNavProps) => {
     [],
   )
 
+  const openDesktopItem = useCallback((label: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
+    setActiveDesktopItem(label)
+  }, [])
+
+  const closeDesktopItem = useCallback(() => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setActiveDesktopItem(null)
+      closeTimeoutRef.current = null
+    }, 150)
+  }, [])
+
   const ctx = useMemo(
-    () => ({ mobileOpen, toggleMobile, activeMobileItem, toggleMobileItem }),
-    [mobileOpen, toggleMobile, activeMobileItem, toggleMobileItem],
+    () => ({
+      mobileOpen,
+      toggleMobile,
+      activeMobileItem,
+      toggleMobileItem,
+      activeDesktopItem,
+      openDesktopItem,
+      closeDesktopItem,
+    }),
+    [
+      mobileOpen,
+      toggleMobile,
+      activeMobileItem,
+      toggleMobileItem,
+      activeDesktopItem,
+      openDesktopItem,
+      closeDesktopItem,
+    ],
   )
 
   return (
@@ -108,19 +145,34 @@ type MainNavItemProps = HTMLAttributes<HTMLDivElement> & {
 }
 
 const MainNavItem = ({ label, children, className, ...props }: MainNavItemProps) => {
-  const { activeMobileItem, toggleMobileItem } = useMainNav()
+  const {
+    activeMobileItem,
+    toggleMobileItem,
+    activeDesktopItem,
+    openDesktopItem,
+    closeDesktopItem,
+  } = useMainNav()
   const mobileActive = activeMobileItem === label
-  const { item, trigger, chevron, panel, panelContent } = mainNavVariants({ mobileActive })
+  const desktopActive = activeDesktopItem === label
+  const { item, trigger, chevron, panel, panelContent } = mainNavVariants({
+    mobileActive,
+    desktopActive,
+  })
 
   return (
-    <div className={item({ className })} {...props}>
+    <div
+      className={item({ className })}
+      onMouseEnter={() => children && openDesktopItem(label)}
+      onMouseLeave={() => children && closeDesktopItem()}
+      {...props}
+    >
       <button type="button" className={trigger()} onClick={() => toggleMobileItem(label)}>
         <span>{label}</span>
         {children && <ChevronDown size={16} aria-hidden="true" className={chevron()} />}
       </button>
 
       {children && (
-        <div aria-hidden={!mobileActive} className={panel()}>
+        <div aria-hidden={!mobileActive && !desktopActive} className={panel()}>
           <div className={panelContent()}>{children}</div>
         </div>
       )}

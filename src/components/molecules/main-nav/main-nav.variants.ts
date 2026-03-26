@@ -24,11 +24,7 @@ export const mainNavVariants = tv({
       'hover:text-mid hover:bg-brand-light/10 hover:rounded-lg',
       'lg:justify-center',
     ],
-    chevron: [
-      'h-4 w-4 shrink-0',
-      'transition-transform duration-200 ease-out',
-      'lg:group-hover/item:rotate-180',
-    ],
+    chevron: ['h-4 w-4 shrink-0', 'transition-transform duration-200 ease-out'],
     panel: [
       'max-lg:max-h-0 max-lg:overflow-hidden max-lg:opacity-0',
       'max-lg:transition-all max-lg:duration-200 max-lg:ease-out',
@@ -37,11 +33,10 @@ export const mainNavVariants = tv({
       'lg:border-brand-light/20 lg:bg-white lg:py-8',
       'lg:transition-opacity lg:duration-200 lg:ease-out',
       'lg:pointer-events-none lg:max-h-0 lg:overflow-hidden lg:border-b-0 lg:opacity-0',
-      'lg:group-hover/item:pointer-events-auto lg:group-hover/item:max-h-screen lg:group-hover/item:overflow-visible lg:group-hover/item:border-b lg:group-hover/item:opacity-100',
     ],
     panelContent: [
       'flex flex-col lg:flex-row',
-      'mx-auto px-[14%] lg:container',
+      'mx-auto px-[5%] lg:container',
       'items-start justify-between gap-6',
     ],
   },
@@ -62,10 +57,19 @@ export const mainNavVariants = tv({
       },
       false: {},
     },
+    desktopActive: {
+      true: {
+        chevron: 'lg:rotate-180',
+        panel:
+          'lg:pointer-events-auto lg:max-h-screen lg:overflow-visible lg:border-b lg:opacity-100',
+      },
+      false: {},
+    },
   },
 
   defaultVariants: {
     mobileOpen: false,
     mobileActive: false,
+    desktopActive: false,
   },
 })

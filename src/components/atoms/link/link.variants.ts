@@ -4,7 +4,7 @@ export const linkVariants = tv({
   base: [
     'flex w-fit cursor-pointer items-center gap-2',
     'font-display rounded-[10px] border-2 font-semibold',
-    'max-w-96 px-4 py-3',
+    'max-w-96 px-4 py-2',
     'transition-all duration-150 ease-in-out',
     'focus-visible:outline-2 focus-visible:outline-offset-2',
     'disabled:pointer-events-none disabled:opacity-50',

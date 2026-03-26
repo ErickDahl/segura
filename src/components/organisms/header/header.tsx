@@ -16,6 +16,8 @@ import {
 import { TopMenu } from '@/components/molecules/top-menu/top-menu'
 import { ChevronDown } from 'lucide-react'
 import globeIcon from '@/assets/images/header/1.svg'
+import { NavPanel } from '@/components/molecules/nav-panel/nav-panel'
+import { panelPlataforma } from './header.data'
 import { headerVariants } from './header.variants'
 
 const { root, nav, navActions, ctaLink } = headerVariants()
@@ -41,7 +43,7 @@ const Header = () => {
             <MainNavToggle />
             <MainNavList>
               <MainNavItem label="Plataforma">
-                <p>Painel plataforma</p>
+                <NavPanel data={panelPlataforma} />
               </MainNavItem>
               <MainNavItem label="Soluções">
                 <p>Painel soluções</p>
