@@ -12,6 +12,8 @@ import { Support } from './sections/support/support'
 import { Awards } from './sections/awards/awards'
 import { Articles } from './sections/articles/articles'
 import { Stripe } from './sections/stripe/stripe'
+import { Footer } from './components/organisms/footer/footer'
+import { WhatsappButton } from './components/atoms/whatsapp-button/whatsapp-button'
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <Articles />
         <Stripe />
       </main>
+      <Footer />
+      <WhatsappButton />
     </>
   )
 }
