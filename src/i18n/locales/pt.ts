@@ -596,6 +596,7 @@ const pt = {
     // ── Common ──────────────────────────────────────────────────────
     common: {
       whatsappLabel: 'Fale conosco no WhatsApp',
+      pageTitle: 'Segura® (anteriormente senhasegura) - Gestão de Acesso Privilegiado',
     },
   },
 } as const

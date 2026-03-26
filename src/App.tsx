@@ -15,8 +15,16 @@ import { Faqs } from './sections/faqs/faqs'
 import { Stripe } from './sections/stripe/stripe'
 import { Footer } from './components/organisms/footer/footer'
 import { WhatsappButton } from './components/atoms/whatsapp-button/whatsapp-button'
+import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 function App() {
+  const { t } = useTranslation()
+
+  useEffect(() => {
+    document.title = t('common.pageTitle')
+  }, [t])
+
   return (
     <>
       <Header />

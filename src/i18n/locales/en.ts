@@ -585,6 +585,7 @@ const en = {
     // ── Common ──────────────────────────────────────────────────────
     common: {
       whatsappLabel: 'Chat with us on WhatsApp',
+      pageTitle: 'Segura® (formerly senhasegura) - Privileged Access Management',
     },
   },
 } as const
