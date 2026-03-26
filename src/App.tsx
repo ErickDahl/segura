@@ -2,7 +2,7 @@ import { Header } from './components/organisms/header/header'
 import { Hero } from '@/sections/hero/hero'
 import { Advantages } from '@/sections/advantages/advantages'
 import { Partners } from './sections/partners/partners'
-import { Faq } from './sections/faq/faq'
+import { WhySegura } from './sections/why-segura/why-segura'
 import { Testimonials } from './sections/testimonials/testimonials'
 import { Compliance } from './sections/compliance/compliance'
 import { Leadership } from './sections/leadership/leadership'
@@ -11,6 +11,7 @@ import { Comparison } from './sections/comparison/comparison'
 import { Support } from './sections/support/support'
 import { Awards } from './sections/awards/awards'
 import { Articles } from './sections/articles/articles'
+import { Faqs } from './sections/faqs/faqs'
 import { Stripe } from './sections/stripe/stripe'
 import { Footer } from './components/organisms/footer/footer'
 import { WhatsappButton } from './components/atoms/whatsapp-button/whatsapp-button'
@@ -23,7 +24,7 @@ function App() {
         <Hero />
         <Advantages />
         <Partners />
-        <Faq />
+        <WhySegura />
         <Testimonials />
         <Compliance />
         <Leadership />
@@ -31,6 +32,7 @@ function App() {
         <Comparison />
         <Support />
         <Awards />
+        <Faqs />
         <Articles />
         <Stripe />
       </main>

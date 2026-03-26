@@ -1,6 +1,6 @@
 import { tv } from 'tailwind-variants'
 
-export const faqVariants = tv({
+export const whySeguraVariants = tv({
   slots: {
     root: 'bg-dark',
     content: 'relative grid w-full grid-cols-1 gap-10 lg:grid-cols-2',

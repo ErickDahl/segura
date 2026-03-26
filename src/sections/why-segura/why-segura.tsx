@@ -3,9 +3,9 @@ import { Heading } from '@/components/atoms/heading/heading'
 import { Link } from '@/components/atoms/link/link'
 import { Accordion, AccordionItem } from '@/components/molecules/accordion/accordion'
 import faq1 from '@/assets/images/faq/1.webp'
-import { faqVariants } from './faq.variants'
+import { whySeguraVariants } from './why-segura.variants'
 
-const faqItems = [
+const items = [
   {
     id: 'all-in-one',
     title: 'Solução All in One',
@@ -32,9 +32,9 @@ const faqItems = [
   },
 ]
 
-const { root, content, media, image, ctaRow } = faqVariants()
+const { root, content, media, image, ctaRow } = whySeguraVariants()
 
-const Faq = () => {
+const WhySegura = () => {
   return (
     <section className={root()}>
       <Container layout="col" className="gap-8">
@@ -46,7 +46,7 @@ const Faq = () => {
             <img src={faq1} width={500} alt="FAQ 1" className={image()} />
           </div>
           <Accordion defaultItem="all-in-one">
-            {faqItems.map(({ id, title, content: text }) => (
+            {items.map(({ id, title, content: text }) => (
               <AccordionItem key={id} id={id} title={title}>
                 {text}
               </AccordionItem>
@@ -62,4 +62,4 @@ const Faq = () => {
   )
 }
 
-export { Faq }
+export { WhySegura }

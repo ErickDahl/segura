@@ -11,7 +11,8 @@ export const accordionVariants = tv({
     ],
     chevron: 'h-5 w-5 shrink-0 transition-transform duration-200 ease-out',
     panel: 'grid transition-all duration-200 ease-out',
-    content: 'text-subtle overflow-hidden pt-4 pl-6 text-base leading-relaxed font-light',
+    content:
+      'text-subtle flex flex-col gap-4 overflow-hidden pt-4 pl-6 text-base leading-relaxed font-light',
   },
   variants: {
     open: {
