@@ -22,7 +22,7 @@ const TopMenu = ({ items, className, ...props }: TopMenuProps) => {
       <div className={wrapper()}>
         <ul className={list()}>
           {items.map(({ href, anchorProps, ...text }) => (
-            <li key={href} className={item()}>
+            <li key={'bold' in text ? text.bold : text.label} className={item()}>
               <a href={href} className={link()} {...anchorProps}>
                 {'bold' in text ? (
                   <b className={bold()}>{text.bold}</b>

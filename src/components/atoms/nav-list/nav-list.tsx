@@ -19,7 +19,7 @@ const NavList = ({ items, direction, className, ...props }: NavListProps) => {
   return (
     <ul className={list({ className })} {...props}>
       {items.map(({ label, href, anchorProps }) => (
-        <li key={href} className={item()}>
+        <li key={label} className={item()}>
           <a href={href} className={link()} {...anchorProps}>
             {label}
           </a>
