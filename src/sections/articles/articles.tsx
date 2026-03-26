@@ -1,13 +1,21 @@
 import { Container } from '@/components/atoms/container/container'
 import { Heading } from '@/components/atoms/heading/heading'
 import { articlesVariants } from './articles.variants'
-import article1 from '@/assets/images/articles/1.png'
-import article2 from '@/assets/images/articles/2.png'
-import article3 from '@/assets/images/articles/3.png'
-import article4 from '@/assets/images/articles/4.png'
+import ptArticle1 from '@/assets/images/articles/pt-br/1.png'
+import ptArticle2 from '@/assets/images/articles/pt-br/2.png'
+import ptArticle3 from '@/assets/images/articles/pt-br/3.png'
+import ptArticle4 from '@/assets/images/articles/pt-br/4.png'
+import enArticle1 from '@/assets/images/articles/en-us/1.webp'
+import enArticle2 from '@/assets/images/articles/en-us/2.png'
+import enArticle3 from '@/assets/images/articles/en-us/3.webp'
+import enArticle4 from '@/assets/images/articles/en-us/4.webp'
 import { useTranslation } from 'react-i18next'
 
-const articleSrcs = [article1, article2, article3, article4]
+const articleSrcsByLang: Record<string, string[]> = {
+  pt: [ptArticle1, ptArticle2, ptArticle3, ptArticle4],
+  en: [enArticle1, enArticle2, enArticle3, enArticle4],
+}
+
 const articleHrefs = [
   '/blog/pam-guide',
   '/blog/cisos',
@@ -19,7 +27,9 @@ const articleAltKeys = ['pamGuide', 'cisos', 'machineIdentity', 'lockedShields']
 const { root, wrapper, description, grid, card, cardImage } = articlesVariants()
 
 const Articles = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+
+  const articleSrcs = articleSrcsByLang[i18n.language] ?? articleSrcsByLang['pt']
 
   const articles = articleAltKeys.map((key, i) => ({
     id: key,
