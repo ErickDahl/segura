@@ -16,8 +16,18 @@ import {
 import { TopMenu } from '@/components/molecules/top-menu/top-menu'
 import { ChevronDown } from 'lucide-react'
 import globeIcon from '@/assets/images/header/1.svg'
-import { NavPanel } from '@/components/molecules/nav-panel/nav-panel'
-import { panelPlataforma } from './header.data'
+import { NavCards } from '@/components/molecules/nav-panel/nav-cards/nav-cards'
+import { NavColumns } from '@/components/molecules/nav-panel/nav-columns/nav-columns'
+import { NavPanel } from '@/components/molecules/nav-panel/nav-panel/nav-panel'
+import { NavPartners } from '@/components/molecules/nav-panel/nav-partners/nav-partners'
+import {
+  panelCompany,
+  panelPartners,
+  panelPlatform,
+  panelResources,
+  panelServices,
+  panelSolutions,
+} from './header.data'
 import { headerVariants } from './header.variants'
 
 const { root, nav, navActions, ctaLink } = headerVariants()
@@ -43,22 +53,22 @@ const Header = () => {
             <MainNavToggle />
             <MainNavList>
               <MainNavItem label="Plataforma">
-                <NavPanel data={panelPlataforma} />
+                <NavPanel data={panelPlatform} />
               </MainNavItem>
               <MainNavItem label="Soluções">
-                <p>Painel soluções</p>
+                <NavColumns data={panelSolutions} />
               </MainNavItem>
               <MainNavItem label="Serviços">
-                <p>Painel serviços</p>
+                <NavCards data={panelServices} />
               </MainNavItem>
               <MainNavItem label="Parceiros">
-                <p>Painel parceiros</p>
+                <NavPartners data={panelPartners} />
               </MainNavItem>
               <MainNavItem label="Empresa">
-                <p>Painel empresa</p>
+                <NavColumns data={panelCompany} />
               </MainNavItem>
               <MainNavItem label="Recursos">
-                <p>Painel recursos</p>
+                <NavColumns data={panelResources} />
               </MainNavItem>
               <Link href="/" variant="primary" size="sm" className={ctaLink()}>
                 Pedir Demo ›

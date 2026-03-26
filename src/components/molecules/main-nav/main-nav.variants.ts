@@ -11,7 +11,7 @@ export const mainNavVariants = tv({
     ],
     list: [
       'flex justify-between max-lg:absolute max-lg:inset-x-0 max-lg:top-full max-lg:z-40 max-lg:w-full max-lg:bg-white',
-      'max-lg:flex-col max-lg:overflow-hidden',
+      'max-lg:flex-col max-lg:overflow-y-auto',
       'max-lg:transition-all max-lg:duration-300 max-lg:ease-out',
       'lg:flex lg:flex-row lg:items-center lg:gap-1',
     ],
@@ -53,7 +53,8 @@ export const mainNavVariants = tv({
     mobileActive: {
       true: {
         chevron: 'max-lg:rotate-180',
-        panel: 'max-lg:max-h-screen max-lg:py-3 max-lg:opacity-100',
+        panel:
+          'max-lg:max-h-none max-lg:overflow-visible max-lg:py-3 max-lg:pb-24 max-lg:opacity-100',
       },
       false: {},
     },
